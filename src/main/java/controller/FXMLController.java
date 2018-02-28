@@ -1,6 +1,7 @@
-package esprit.tn.Infinity_client;
+package controller;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.naming.Context;
@@ -34,6 +35,22 @@ public class FXMLController implements Initializable {
 		//
 		proxy.CreateAddress(address);
         label.setText("Insert the first Address in DB with success ");
+        address = proxy.findAddressById(1);
+        System.out.println(address);
+        //
+        proxy.CreateAddress(address);
+        label.setText("Insert the first Address in DB with success ");
+        // test findAddressById
+        address = proxy.findAddressById(1);
+        System.out.println(address);
+        // Test findAllAddress
+        System.out.println("Test Liste address");
+        List<Address> lst = proxy.findAllAddress();
+        for( Address a : lst)
+        {
+        	System.out.println(a);	
+        }
+        
     }
     
     @Override

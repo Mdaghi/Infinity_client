@@ -18,13 +18,12 @@ public class Main {
 	 * @throws NamingException
 	 */
 	public static void main(String[] args) throws NamingException {
-		Properties jndiProps = new Properties(); //l
-		jndiProps.put(Context.PROVIDER_URL,"http-remoting://localhost:8080");
+		/*Properties jndiProps = new Properties(); //l
+		jndiProps.put(Context.PROVIDER_URL,"http-remoting://localhost:8080");*/
 		String jndiName="infinity_server-ear/infinity_server-ejb/ServiceNewsSource!tn.esprit.infinity_server.interfaces.NewsSourceRemote";
-		Context context=new InitialContext(jndiProps);
+		Context context=new InitialContext();
 		NewsSourceRemote proxy=(NewsSourceRemote)context.lookup(jndiName);
 		NewsSource ns = new NewsSource();
-		ns.setId(1);
 		ns.setDescription("aze");
 		ns.setUrl("aze");
 		ns.setImage("aze");
