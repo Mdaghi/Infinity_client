@@ -18,7 +18,7 @@ public class Main {
 	 * @throws NamingException
 	 */
 	public static void main(String[] args) throws NamingException {
-		Properties jndiProps = new Properties();
+		Properties jndiProps = new Properties(); //l
 		jndiProps.put(Context.PROVIDER_URL,"http-remoting://localhost:8080");
 		String jndiName="infinity_server-ear/infinity_server-ejb/ServiceNewsSource!tn.esprit.infinity_server.interfaces.NewsSourceRemote";
 		Context context=new InitialContext(jndiProps);
