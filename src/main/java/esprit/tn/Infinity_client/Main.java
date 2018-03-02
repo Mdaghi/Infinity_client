@@ -7,8 +7,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import tn.esprit.infinity_server.interfaces.AddressRemote;
-import tn.esprit.infinity_server.interfaces.NewsArticleRemote;
 import tn.esprit.infinity_server.interfaces.NewsSourceRemote;
 import tn.esprit.infinity_server.persistence.*;
 
