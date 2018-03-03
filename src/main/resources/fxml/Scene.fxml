@@ -6,7 +6,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
     <children>
-        <Button fx:id="button" layoutX="126.0" layoutY="90.0" onAction="#handleButtonAction" text="Click Me!" />
+        <Button fx:id="button" layoutX="64.0" layoutY="137.0" onAction="#handleButtonAction" text="Click Me!" />
         <Label fx:id="label" layoutX="34.0" layoutY="127.0" minHeight="16" minWidth="69" prefHeight="36.0" prefWidth="146.0" />
+      <Button fx:id="bt2" layoutX="34.0" layoutY="25.0" mnemonicParsing="false" onAction="#addbondsoffers" text="Add Bonds Offers" />
+      <Button layoutX="30.0" layoutY="59.0" mnemonicParsing="false" onAction="#deleteBondsOffers" text="Delete Bondsoffers" />
     </children>
 </AnchorPane>
