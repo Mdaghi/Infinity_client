@@ -51,53 +51,49 @@ public class ClientController implements Initializable {
     @FXML
     private ToggleButton btInstituicao;
     @FXML
-    private ToggleButton btExcursao;
-    @FXML
     private ToggleButton btEmprestimos;
     @FXML
     private VBox boxEmprestimo;
     @FXML
-    private ToggleButton btEmprestimo;
-    @FXML
-    private ToggleGroup grupoEmprestimo;
-    @FXML
-    private ToggleButton btItens;
-    @FXML
-    private ToggleButton btDevolucao;
-    @FXML
-    private ToggleButton btHistorico;
-    @FXML
     private ToggleButton btRelatorios;
     @FXML
-    private ToggleButton btLocalizacao;
-    @FXML
     private VBox boxLocalizacao;
-    @FXML
-    private ToggleButton btLocalizar;
-    @FXML
-    private ToggleGroup grupoLocaliacao;
-    @FXML
-    private ToggleButton btOrganizacao;
-    @FXML
-    private ToggleButton btSetor;
-    @FXML
-    private ToggleButton btLocal;
     @FXML
     private ToggleButton btUtilitarios;
     @FXML
     private VBox boxUtilitarios;
     @FXML
-    private ToggleButton btUsuarios;
-    @FXML
     private ToggleGroup grupoUtilidades;
     @FXML
     private Label lbUser;
     @FXML
-    private AnchorPane boxConteudo;
-    @FXML
     private Label lbMensagem;
     @FXML
     private VBox boxNotas;
+    @FXML
+    private ToggleButton btInstituicao1;
+    @FXML
+    private ToggleGroup grupoVisitantes1;
+    @FXML
+    private ToggleButton btInstituicao11;
+    @FXML
+    private ToggleGroup grupoVisitantes11;
+    @FXML
+    private ToggleButton btInstituicao111;
+    @FXML
+    private ToggleGroup grupoVisitantes111;
+    @FXML
+    private ToggleGroup grupoUtilidades2;
+    @FXML
+    private ToggleGroup grupoUtilidades1;
+    @FXML
+    private ToggleButton btnProfile;
+    @FXML
+    private ToggleButton btnActivate;
+    @FXML
+    private ToggleButton btnDesactivate;
+    @FXML
+    private AnchorPane container;
 
     /**
      * Initializes the controller class.
@@ -143,61 +139,21 @@ public class ClientController implements Initializable {
     private void subInstituicao(ActionEvent event) {
     }
 
-    @FXML
-    private void subExcursao(ActionEvent event) {
-    }
 
     @FXML
     private void menuEmprestimo(ActionEvent event) {
     }
 
-    @FXML
-    private void subEmprestimo(ActionEvent event) {
-    }
-
-    @FXML
-    private void subItensEmprestimo(ActionEvent event) {
-    }
-
-    @FXML
-    private void subDevolucaoEmprestimo(ActionEvent event) {
-    }
-
-    @FXML
-    private void subHistoricoEmprestimo(ActionEvent event) {
-    }
 
     @FXML
     private void menuRelatorios(ActionEvent event) {
     }
 
-    @FXML
-    private void menuLocalizacao(ActionEvent event) {
-    }
-
-    @FXML
-    private void subLocalizar(ActionEvent event) {
-    }
-
-    @FXML
-    private void subOrganizacao(ActionEvent event) {
-    }
-
-    @FXML
-    private void subSetor(ActionEvent event) {
-    }
-
-    @FXML
-    private void subLocal(ActionEvent event) {
-    }
 
     @FXML
     private void menuUtilitario(ActionEvent event) {
     }
 
-    @FXML
-    private void subUsuarios(ActionEvent event) {
-    }
 
     @FXML
     private void menuSair(ActionEvent event) {
@@ -205,6 +161,18 @@ public class ClientController implements Initializable {
 
     @FXML
     private void siteMuseu(ActionEvent event) {
+    }
+
+    @FXML
+    private void Profile(ActionEvent event) {
+    }
+
+    @FXML
+    private void Activate(ActionEvent event) {
+    }
+
+    @FXML
+    private void Desactivate(ActionEvent event) {
     }
     
 }

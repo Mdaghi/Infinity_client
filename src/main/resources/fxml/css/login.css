@@ -3,7 +3,7 @@
 }
 
 .background {
-    -fx-background-image: url("../img/background.png");
+    -fx-background-image: url("../img/Background-login.jpg");
     -fx-background-size: 100% 100%;
     -fx-background-color: transparent;
     -fx-background-position: top;
@@ -38,7 +38,7 @@
 }
 
 .logo {
-    -fx-image: url("../img/logo.png");
+    -fx-image: url("../img/IntellixxWhite.png");
 }
 
 .login-img {
@@ -85,8 +85,8 @@
 
 .bt-logar {
     -fx-text-fill: #fff;
-    -fx-background-color: #cbde70;
-    -fx-border-color: #bed452;
+    -fx-background-color: #D5C2FF;
+    -fx-border-color: #8F7CEA;
     -fx-border-insets: 0;
     -fx-background-insets: 0;
     -fx-border-radius: 0;
@@ -97,7 +97,7 @@
 
 .bt-logar:hover,
 .bt-logar:selected {
-    -fx-background-color: #d0e278;
+    -fx-background-color: #8F7CEA;
 }
 
 .error {
@@ -119,7 +119,7 @@
 .link:hover,
 .link:focused {
     -fx-padding: 0px;
-    -fx-text-fill: #c5db5a;
+    -fx-text-fill: #8F7CEA;
     -fx-border-width: 0px;
     -fx-underline: false;
     -fx-alignment: bottom-center;

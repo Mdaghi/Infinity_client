@@ -37,12 +37,6 @@ public class FXMLController implements Initializable {
         label.setText("Insert the first Address in DB with success ");
         address = proxy.findAddressById(1);
         System.out.println(address);
-        //
-        proxy.CreateAddress(address);
-        label.setText("Insert the first Address in DB with success ");
-        // test findAddressById
-        address = proxy.findAddressById(1);
-        System.out.println(address);
         // Test findAllAddress
         System.out.println("Test Liste address");
         List<Address> lst = proxy.findAllAddress();

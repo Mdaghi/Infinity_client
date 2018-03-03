@@ -3,7 +3,7 @@
 }
 
 .logo {
-    -fx-image: url("../img/logo-app.png");
+    -fx-image: url("../img/IntellixxWhite.png");
 }
 
 .box-logo {
@@ -45,13 +45,13 @@
 }
 
 .menus:hover {
-    -fx-text-fill: #cde073;
+    -fx-text-fill: #D5C2FF;
     -fx-background-color: #2f2f2f;
 }
 
 .menus:selected {
-    -fx-background-color: #cde073;
-    -fx-border-color: #c4d66c;
+    -fx-background-color: #D5C2FF;
+    -fx-border-color: #8F7CEA;
     -fx-text-fill: #3b3b3b;
     -fx-background-insets: 0;
     -fx-border-insets: 0;
@@ -172,18 +172,18 @@
     -fx-min-height: 30px;
     -fx-padding: 0 0 0 10;
     -fx-font-family: 'Open Sans', sans-serif;
-    -fx-graphic: url("../img/submenu-ative.png");
+    -fx-graphic: url("../img/submenu-ative-red.png");
     -fx-graphic-text-gap: 5;
 }
 
 .submenus:hover {
-    -fx-text-fill: #cde073;
-    -fx-graphic: url("../img/submenu-inativo.png");
+    -fx-text-fill: #8F7CEA;
+    -fx-graphic: url("../img/submenu-inativo-red.png");
 }
 
 .submenus:selected {
-    -fx-text-fill: #cde073;
-    -fx-graphic: url("../img/submenu-inativo.png");
+    -fx-text-fill: #D5C2FF;
+    -fx-graphic: url("../img/submenu-inativo-red.png");
 }
 
 .box-user {
@@ -207,7 +207,7 @@
 }
 
 .lb-user {
-    -fx-text-fill: #ffbe2c;
+    -fx-text-fill: #ff4c2c;
     -fx-padding: 0 0 0 10;
 }
 
@@ -271,8 +271,8 @@
 }
 
 .scroll > *.scroll-bar > *.thumb {
-    -fx-background-color: #cde073;
-    -fx-border-color: #cde073;
+    -fx-background-color: #D5C2FF;
+    -fx-border-color: #D5C2FF;
     -fx-background-insets: 0;
     -fx-background-radius: 0;
     -fx-border-insets: 0;

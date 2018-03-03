@@ -21,7 +21,7 @@
                     <children>
                         <HBox alignment="BASELINE_LEFT" prefHeight="70.0" spacing="5.0" styleClass="box-logo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="11.0" layoutY="9.0" onMouseClicked="#menuDashboard" pickOnBounds="true" preserveRatio="true" styleClass="logo" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                <ImageView fitHeight="47.0" fitWidth="225.0" layoutX="11.0" layoutY="9.0" onMouseClicked="#menuDashboard" pickOnBounds="true" preserveRatio="true" styleClass="logo" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                             </children>
                         </HBox>
                         <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="60.0" pannable="true" prefViewportHeight="710.0" prefViewportWidth="220.0" styleClass="scroll" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
@@ -42,17 +42,17 @@
                                                 </ToggleButton>
                                                 <VBox fx:id="boxCatalogacao" layoutX="10.0" layoutY="55.0" styleClass="box-submenus">
                                                     <children>
-                                                        <ToggleButton fx:id="btCatalogar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subCatalogar" styleClass="submenus" text="Client Offers">
+                                                        <ToggleButton fx:id="btCatalogar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subCatalogar" styleClass="submenus" text="My Offers">
                                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="grupoCatalogacao" />
                                                             </toggleGroup>
                                                         </ToggleButton>
-                                                        <ToggleButton fx:id="btDesginacao" alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subDesignacao" styleClass="submenus" text="Client Demands" toggleGroup="$grupoCatalogacao" />
+                                                        <ToggleButton fx:id="btDesginacao" alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subDesignacao" styleClass="submenus" text="My Demands" toggleGroup="$grupoCatalogacao" />
                                                         <ToggleButton fx:id="btEstratigrafia" alignment="CENTER_LEFT" layoutX="40.0" layoutY="40.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subEstratigrafia" styleClass="submenus" text="Current Bonds" toggleGroup="$grupoCatalogacao" />
                                                         <ToggleButton fx:id="btColecao" alignment="CENTER_LEFT" layoutX="40.0" layoutY="70.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subColecao" styleClass="submenus" text="Trade Bonds" toggleGroup="$grupoCatalogacao" />
                                                     </children>
                                                 </VBox>
-                                                <ToggleButton fx:id="btVisitas" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuVisitas" text="Clients" toggleGroup="$grupoMenus">
+                                                <ToggleButton fx:id="btVisitas" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuVisitas" text="Traders" toggleGroup="$grupoMenus">
                                                     <styleClass>
                                                         <String fx:value="menus" />
                                                         <String fx:value="menu-visitantes" />
@@ -61,13 +61,12 @@
                                                 </ToggleButton>
                                                 <VBox fx:id="boxVisitas" styleClass="box-submenus">
                                                     <children>
-                                                        <ToggleButton fx:id="btVisitantes" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subVisitantes" styleClass="submenus" text="My Clients">
+                                                        <ToggleButton fx:id="btVisitantes" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subVisitantes" styleClass="submenus" text="My Traders">
                                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="grupoVisitantes" />
                                                             </toggleGroup>
                                                         </ToggleButton>
-                                                        <ToggleButton fx:id="btInstituicao" alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subInstituicao" styleClass="submenus" text="Requests" toggleGroup="$grupoVisitantes" />
-                                                        <ToggleButton fx:id="btExcursao" alignment="CENTER_LEFT" layoutX="40.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subExcursao" styleClass="submenus" text="More..." toggleGroup="$grupoVisitantes" />
+                                                        <ToggleButton fx:id="btInstituicao" alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subInstituicao" styleClass="submenus" text="Current Traders" toggleGroup="$grupoVisitantes" />
                                                     </children>
                                                 </VBox>
                                                 <ToggleButton fx:id="btEmprestimos" alignment="CENTER_LEFT" layoutX="10.0" layoutY="145.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuEmprestimo" text="News" toggleGroup="$grupoMenus">
@@ -78,43 +77,32 @@
                                                     </styleClass>
                                                 </ToggleButton>
                                                 <VBox fx:id="boxEmprestimo" layoutX="10.0" layoutY="180.0" styleClass="box-submenus">
-                                                    <children>
-                                                        <ToggleButton fx:id="btEmprestimo" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subEmprestimo" styleClass="submenus" text="Empréstimo">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="grupoEmprestimo" />
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton fx:id="btItens" alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subItensEmprestimo" styleClass="submenus" text="Itens" toggleGroup="$grupoEmprestimo" />
-                                                        <ToggleButton fx:id="btDevolucao" alignment="CENTER_LEFT" layoutX="40.0" layoutY="40.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subDevolucaoEmprestimo" styleClass="submenus" text="Devolução" toggleGroup="$grupoEmprestimo" />
-                                                        <ToggleButton fx:id="btHistorico" alignment="CENTER_LEFT" layoutX="40.0" layoutY="70.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subHistoricoEmprestimo" styleClass="submenus" text="Histórico" toggleGroup="$grupoEmprestimo" />
-                                                    </children>
+                                       <children>
+                                          <ToggleButton fx:id="btInstituicao1" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subInstituicao" styleClass="submenus" text="Watchlist">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoVisitantes1" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="btInstituicao11" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subInstituicao" styleClass="submenus" text="My Articles">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoVisitantes11" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="btInstituicao111" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subInstituicao" styleClass="submenus" text="Subcribes">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoVisitantes111" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                       </children>
                                                 </VBox>
-                                                <ToggleButton fx:id="btRelatorios" alignment="CENTER_LEFT" layoutX="10.0" layoutY="300.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuRelatorios" text="Statistics" toggleGroup="$grupoMenus">
+                                                <ToggleButton fx:id="btRelatorios" alignment="CENTER_LEFT" layoutX="10.0" layoutY="300.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuRelatorios" text="Portfolio" toggleGroup="$grupoMenus">
                                                     <styleClass>
                                                         <String fx:value="menus" />
                                                         <String fx:value="menu-relatorios" />
                                                     </styleClass>
                                                 </ToggleButton>
-                                                <ToggleButton fx:id="btLocalizacao" alignment="CENTER_LEFT" layoutX="10.0" layoutY="595.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuLocalizacao" text="Localização" toggleGroup="$grupoMenus">
-                                                    <styleClass>
-                                                        <String fx:value="menus" />
-                                                        <String fx:value="menu-localizacao" />
-                                                        <String fx:value="menu-grupo" />
-                                                    </styleClass>
-                                                </ToggleButton>
-                                                <VBox fx:id="boxLocalizacao" layoutX="10.0" layoutY="700.0" styleClass="box-submenus">
-                                                    <children>
-                                                        <ToggleButton fx:id="btLocalizar" alignment="CENTER_LEFT" layoutX="40.0" layoutY="70.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subLocalizar" styleClass="submenus" text="Acervo">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="grupoLocaliacao" />
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton fx:id="btOrganizacao" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subOrganizacao" styleClass="submenus" text="Organização" toggleGroup="$grupoLocaliacao" />
-                                                        <ToggleButton fx:id="btSetor" alignment="CENTER_LEFT" layoutX="40.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subSetor" styleClass="submenus" text="Setor" toggleGroup="$grupoLocaliacao" />
-                                                        <ToggleButton fx:id="btLocal" alignment="CENTER_LEFT" layoutX="40.0" layoutY="40.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subLocal" styleClass="submenus" text="Local" toggleGroup="$grupoLocaliacao" />
-                                                    </children>
-                                                </VBox>
-                                                <ToggleButton fx:id="btUtilitarios" alignment="CENTER_LEFT" layoutX="10.0" layoutY="560.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuUtilitario" text="Utilitarios" toggleGroup="$grupoMenus">
+                                                <VBox fx:id="boxLocalizacao" layoutX="10.0" layoutY="700.0" styleClass="box-submenus" />
+                                                <ToggleButton fx:id="btUtilitarios" alignment="CENTER_LEFT" layoutX="10.0" layoutY="560.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuUtilitario" text="Profile" toggleGroup="$grupoMenus">
                                                     <styleClass>
                                                         <String fx:value="menus" />
                                                         <String fx:value="menu-utilidade" />
@@ -123,11 +111,21 @@
                                                 </ToggleButton>
                                                 <VBox fx:id="boxUtilitarios" layoutX="10.0" layoutY="335.0" styleClass="box-submenus">
                                                     <children>
-                                                        <ToggleButton fx:id="btUsuarios" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subUsuarios" styleClass="submenus" text="Usuários">
+                                          <ToggleButton fx:id="btnProfile" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Profile" styleClass="submenus" text="Profile">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoUtilidades2" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                                        <ToggleButton fx:id="btnActivate" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Activate" styleClass="submenus" text="Activate">
                                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="grupoUtilidades" />
                                                             </toggleGroup>
                                                         </ToggleButton>
+                                          <ToggleButton fx:id="btnDesactivate" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Desactivate" styleClass="submenus" text="Desactivate">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoUtilidades1" />
+                                             </toggleGroup>
+                                          </ToggleButton>
                                                     </children>
                                                 </VBox>
                                             </children>
@@ -148,11 +146,11 @@
             <center>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <AnchorPane fx:id="boxConteudo" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="container" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="30.0" styleClass="box-footer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                             <children>
-                                <Label fx:id="lbMensagem" layoutX="30.0" layoutY="2.0" styleClass="box-mensagens" text="Version 1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="0.0" />
-                                <Hyperlink alignment="CENTER_RIGHT" layoutY="2.0" onAction="#siteMuseu" prefHeight="28.0" prefWidth="120.0" styleClass="link" text="MuseuID" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                <Label fx:id="lbMensagem" layoutX="30.0" layoutY="2.0" styleClass="box-mensagens" text="IDECA 2.0 -Bonds" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="0.0" />
+                                <Hyperlink alignment="CENTER_RIGHT" layoutY="2.0" onAction="#siteMuseu" prefHeight="28.0" prefWidth="120.0" styleClass="link" text="Intellixx" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                             </children>
                         </AnchorPane>
                     </children>
