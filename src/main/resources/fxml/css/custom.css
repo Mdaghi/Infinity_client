@@ -154,6 +154,23 @@
     -fx-graphic: url("../img/add-h.png");
 }
 
+.menu-confirm {
+    -fx-graphic: url("../img/nota-confirma.png");
+}
+
+.menu-confirm2 {
+    -fx-graphic: url("../img/nota-confirma2.png");
+}
+
+.menu-delete {
+    -fx-graphic: url("../img/nota-erro.png");
+}
+
+.menu-alert {
+    -fx-graphic: url("../img/nota-bell.png");
+}
+
+
 .menu-editar {
     -fx-graphic: url("../img/editar.png");
 }
@@ -217,12 +234,12 @@
     -fx-graphic: url("../img/historico-h.png");
 }
 
-.menu-movimentacao {
+.menu-refresh {
     -fx-graphic: url("../img/movi-m.png");
 }
 
-.menu-movimentacao:hover,
-.menu-movimentacao:selected {
+.menu-refresh:hover,
+.menu-refresh:selected {
     -fx-graphic: url("../img/movi-h.png");
 }
 
