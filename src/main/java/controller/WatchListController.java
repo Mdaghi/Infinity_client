@@ -62,6 +62,7 @@ public class WatchListController implements Initializable{
     @FXML()
     private Label lbCaracters;
 
+    private String descriptionContainer="";
     Controls control=new Controls();
 
     @FXML
@@ -108,11 +109,19 @@ public class WatchListController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 			txtDescription.setOnKeyPressed(e->{
 			int length=255-txtDescription.getText().length();
-			if(length>0)
-			lbCaracters.setText(length+"/255 caracters");
-			else
+			if(length>=0)
 			{
-				lbCaracters.setText("0/255 caracters");
+			descriptionContainer="";
+			lbCaracters.setText(length+"/255 caracters");
+			}
+			else
+			{	
+			if (descriptionContainer.equals(""))
+				descriptionContainer=txtDescription.getText();
+			else
+				txtDescription.setText(descriptionContainer);
+
+			lbCaracters.setText("0/255 caracters");
 			}
 			});
 			txtName.setOnKeyPressed(e->{
