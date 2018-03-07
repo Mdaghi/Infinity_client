@@ -19,12 +19,20 @@ import javafx.scene.image.Image;
  */
 public class Newsource implements Media {
 
+	private int id;
     private String description;
-
     private String coverUrl;
-
+    private String url;
     private String name;
 
+    public int getId()
+    {
+    	return id;
+    }
+    public void setId(int id)
+    {
+    	this.id=id;
+    }
     public String getDescription() {
         return description;
     }
@@ -49,7 +57,22 @@ public class Newsource implements Media {
         this.name = name;
     }
 
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    
+    
     @Override
+	public String toString() {
+		return "Newsource [id=" + id + ", description=" + description + ", coverUrl=" + coverUrl + ", url=" + url
+				+ ", name=" + name + "]";
+	}
+	@Override
     public StringProperty titleProperty() {
         return new SimpleStringProperty(getName());
     }

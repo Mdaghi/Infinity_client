@@ -7,6 +7,7 @@ package controller;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javafx.scene.control.Label;
 import org.json.JSONArray;
@@ -28,6 +29,8 @@ public class Terminal {
             return showStock(params[0]);
         } else if (command.equalsIgnoreCase("SHOWALLSTOCK")) {
             return showAllStocks();
+        } else if (command.equalsIgnoreCase("INFO")) {
+            return info();
         } else {
             return "unkown command... try the HELP command for guidelines";
         }
@@ -48,12 +51,16 @@ public class Terminal {
     }
 
     private static String showStock(String symbol) {
+        final Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -1);
+        SimpleDateFormat sfYesterday = new SimpleDateFormat("yyyy-MM-dd");
+        
         SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss.SSS");
         String response = HttpRequest.get("https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=" + symbol + "&interval=1min&apikey=R5Y2Z66NSW3CFTXA")
                 .accept("application/json")
                 .body();
         JSONObject jsonObject = new JSONObject(response);
-        JSONObject result = ((JSONObject) ((JSONObject) jsonObject.get("Monthly Time Series")).get("2018-03-02"));
+        JSONObject result = ((JSONObject) ((JSONObject) jsonObject.get("Monthly Time Series")).get(sfYesterday.format(cal.getTime())));
         Label quote = new Label();
         quote.setWrapText(true);
         String toStock = "symbol: " + symbol + " | ";
@@ -112,6 +119,11 @@ public class Terminal {
     }
 
     private static String help() {
-        return "Welcome to Oussama's terminal, this terminal supports the following commands: {'CONVERT CURRENCY1 CURRENCY2', 'FREEZE', 'HELP','SHOWSTOCK','STATUS', 'SYMBOLS'}";
+        return "{'CONVERT CURRENCY1 CURRENCY2', 'FREEZE', 'HELP','SHOWSTOCK','SHOWALLSTOCK','STATUS', 'SYMBOLS'}";
     }
+
+    private static String info() {
+        return "Welcome to Infinity Trader Terminal, this terminal was built for a school project by Oussama Ben Ghorbel inspired by his coach Professor Salma";
+    }
+
 }
