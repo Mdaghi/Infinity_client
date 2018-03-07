@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
+    <children>
+        <HBox prefHeight="60.0" prefWidth="1207.0" styleClass="box-topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="lbTitulo" layoutX="10.0" maxWidth="1.7976931348623157E308" text="Edit Profile" textFill="#abb1db" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            </children>
+        </HBox>
+        <GridPane fx:id="telaCadastro" hgap="10.0" layoutX="15.0" layoutY="65.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="65.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="344.0" minWidth="159.0" prefWidth="248.0" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" minWidth="10.0" prefWidth="136.0" />
+                <ColumnConstraints maxWidth="256.0" minWidth="125.0" prefWidth="212.0" />
+                <ColumnConstraints maxWidth="268.0" minWidth="160.0" prefWidth="239.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="35.0" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" />
+            <RowConstraints minHeight="10.0" prefHeight="35.0" />
+            <RowConstraints minHeight="10.0" prefHeight="35.0" />
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" />
+            </rowConstraints>
+            <children>
+                <Label prefHeight="17.0" prefWidth="250.0" text="Firstname">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <TextField fx:id="txtLastname" prefHeight="35.0" prefWidth="559.0" promptText="Lastname" styleClass="campo-texto" GridPane.columnSpan="4" GridPane.rowIndex="3" />
+                <Label prefHeight="17.0" prefWidth="266.0" text="Lastname" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <Label layoutX="10.0" layoutY="147.0" text="Address :" GridPane.rowIndex="7">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <TextField fx:id="txtStreet" prefHeight="35.0" prefWidth="182.0" promptText="Street" styleClass="campo-texto" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                <TextField fx:id="txtCountry" layoutX="513.0" layoutY="105.0" prefHeight="35.0" prefWidth="182.0" styleClass="campo-texto" GridPane.rowIndex="10" />
+                <Label prefHeight="17.0" prefWidth="236.0" text="Phone Number" GridPane.rowIndex="4">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <Label layoutX="10.0" layoutY="149.0" prefHeight="17.0" prefWidth="236.0" text="Postal Code" GridPane.columnIndex="2" GridPane.rowIndex="9">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <Label layoutX="902.0" layoutY="149.0" text="Street" GridPane.columnIndex="3" GridPane.rowIndex="9">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <TextField fx:id="txtCity" layoutX="902.0" layoutY="175.0" prefHeight="35.0" prefWidth="182.0" promptText="City" styleClass="campo-texto" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                <Label layoutX="1072.0" layoutY="149.0" text="Country" GridPane.rowIndex="9">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <TextField fx:id="txtPostalCode" layoutX="320.0" layoutY="175.0" prefHeight="35.0" prefWidth="182.0" promptText="Code postal" styleClass="campo-texto" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                <Label layoutX="10.0" layoutY="217.0" text="Number" GridPane.columnIndex="4" GridPane.rowIndex="9">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <TextField fx:id="txtNumber" layoutX="902.0" layoutY="140.0" prefHeight="35.0" prefWidth="182.0" promptText="Number" styleClass="campo-texto" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+            <TextField fx:id="txtFirstname" layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="559.0" promptText="Firstname" styleClass="campo-texto" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+            <TextField fx:id="txtPhoneNumber" prefHeight="35.0" prefWidth="559.0" promptText="Phone Number" styleClass="campo-texto" GridPane.columnSpan="4" GridPane.rowIndex="5" />
+            <Label text="City" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            </children>
+        </GridPane>
+        <AnchorPane fx:id="telaEdicao" visible="false" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+            <children>
+                <TableView tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                    <columns>
+                        <TableColumn fx:id="colId" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="Id" />
+                        <TableColumn fx:id="colNome" maxWidth="500.0" minWidth="150.0" prefWidth="200.0" text="Nome" />
+                        <TableColumn fx:id="colSigla" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Sigla" />
+                        <TableColumn fx:id="colEmail" maxWidth="300.0" minWidth="150.0" prefWidth="200.0" text="Email" />
+                        <TableColumn fx:id="colFax" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Fax" />
+                        <TableColumn fx:id="colTelefone" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Telefone" />
+                        <TableColumn fx:id="colLogradouro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Logradouro" />
+                        <TableColumn fx:id="colBairro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Bairro" />
+                        <TableColumn fx:id="colCidade" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Cidade" />
+                        <TableColumn fx:id="colEstado" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Estado" />
+                        <TableColumn fx:id="colPais" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="País" />
+                        <TableColumn fx:id="colDescricao" maxWidth="500.0" minWidth="150.0" prefWidth="300.0" text="Descrição" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="50.0" styleClass="box-menus-subtela" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+            <children>
+                <StackPane AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                    <children>
+                        <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="" text="Salvar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <styleClass>
+                                <String fx:value="menus-acoes" />
+                                <String fx:value="acao-salvar" />
+                        <String fx:value="menu-green" />
+                            </styleClass>
+                        </Button>
+                        <Button id="" contentDisplay="TOP" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="" text="Editar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <styleClass>
+                                <String fx:value="menus-acoes" />
+                                <String fx:value="acao-editar" />
+                        <String fx:value="menu-laranja" />
+                            </styleClass>
+                        </Button>
+                        <Button id="" fx:id="btnvalide" contentDisplay="TOP" mnemonicParsing="false" onAction="#valide" prefHeight="40.0" prefWidth="200.0" style="" text="valide" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <styleClass>
+                                <String fx:value="menus-acoes" />
+                                <String fx:value="acao-adicionar" />
+                        <String fx:value="menu-green" />
+                            </styleClass>
+                        </Button>
+                    </children>
+                </StackPane>
+            </children>
+        </AnchorPane>
+    </children>
+    <stylesheets>
+        <URL value="@../css/default.css" />
+        <URL value="@../css/custom.css" />
+    </stylesheets>
+</AnchorPane>

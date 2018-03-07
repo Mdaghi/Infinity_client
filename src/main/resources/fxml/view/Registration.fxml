@@ -20,24 +20,24 @@
                 <ImageView fitHeight="100.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" styleClass="logo" />
                 <AnchorPane prefHeight="356.0" prefWidth="400.0">
                     <children>
-                        <AnchorPane layoutY="15.0" prefHeight="348.0" prefWidth="400.0" styleClass="box-login" AnchorPane.bottomAnchor="-26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane layoutY="15.0" prefHeight="348.0" prefWidth="400.0" style="-fx-background-color: rgba(29, 31, 61, 0.60);" styleClass="box-login" AnchorPane.bottomAnchor="-26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
                             <children>
                                 <TextField fx:id="txtEmail" layoutX="21.0" layoutY="44.0" prefHeight="40.0" prefWidth="336.0" promptText="Email" styleClass="registration" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="44.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </TextField>
-                                <PasswordField fx:id="txtPassword" layoutX="23.0" layoutY="155.0" prefHeight="40.0" prefWidth="364.0" promptText="Password" styleClass="registration" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="155.0">
+                                <PasswordField fx:id="txtPassword" accessibleRole="TEXT_FIELD" layoutX="23.0" layoutY="155.0" prefHeight="40.0" prefWidth="364.0" promptText="Password" styleClass="registration" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="155.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </PasswordField>
-                                <Button layoutX="23.0" layoutY="268.0" mnemonicParsing="false" onAction="#Registration" prefHeight="20.0" styleClass="bt-logar" text="Registration" textFill="WHITE" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="17.0">
+                                <Button layoutX="24.0" layoutY="268.0" mnemonicParsing="false" onAction="#registration" prefHeight="20.0" styleClass="bt-seif" text="Registration" textFill="WHITE" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="18.0">
                                     <font>
                                         <Font size="16.0" />
                                     </font>
                                 </Button>
-                        <TextField fx:id="txtUsername" accessibleRole="IMAGE_VIEW" layoutX="24.0" layoutY="101.0" prefHeight="40.0" prefWidth="358.0" promptText="Username" styleClass="registration">
+                        <TextField fx:id="txtLogin" accessibleRole="IMAGE_VIEW" layoutX="24.0" layoutY="101.0" prefHeight="40.0" prefWidth="358.0" promptText="Login" styleClass="registration">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -47,7 +47,10 @@
                               <Font size="14.0" />
                            </font>
                         </PasswordField>
-                        <Hyperlink fx:id="BtnLogin" alignment="CENTER" layoutX="96.0" layoutY="322.0" onAction="#BackLogin" prefHeight="17.0" prefWidth="213.0" styleClass="link" text="Login" textAlignment="CENTER" />
+                        <Hyperlink fx:id="btnLogin" alignment="CENTER" layoutX="96.0" layoutY="322.0" onAction="#backLogin" prefHeight="17.0" prefWidth="213.0" text="Login" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Hyperlink>
                             </children>
                         </AnchorPane>
                         <StackPane layoutY="-3.0" prefHeight="40.0" prefWidth="248.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

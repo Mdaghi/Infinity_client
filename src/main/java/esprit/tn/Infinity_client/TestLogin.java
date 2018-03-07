@@ -11,7 +11,7 @@ public class TestLogin extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Registration.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Login.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);

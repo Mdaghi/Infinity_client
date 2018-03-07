@@ -73,7 +73,7 @@ public class FXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    	Long l=(long) 0;
+    	/*Long l=(long) 0;
 		Float f=(float) 0.0;
 		Date date =new Date();
     	String jndiName="infinity_server-ear/infinity_server-ejb/BondsOffersServices!tn.esprit.infinity_server.interfaces.BondsOffers";
@@ -100,7 +100,7 @@ public class FXMLController implements Initializable {
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
         
     	
 		

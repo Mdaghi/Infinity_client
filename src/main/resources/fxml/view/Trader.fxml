@@ -42,14 +42,10 @@
                                                 </ToggleButton>
                                                 <VBox fx:id="boxCatalogacao" layoutX="10.0" layoutY="55.0" styleClass="box-submenus">
                                                     <children>
-                                                        <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="My Offers">
-                                                            <toggleGroup>
+                                                        <ToggleButton alignment="CENTER_LEFT" layoutX="40.0" layoutY="70.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Trade Bonds">
+                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="grupoCatalogacao" />
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="My Demands" toggleGroup="$grupoCatalogacao" />
-                                                        <ToggleButton alignment="CENTER_LEFT" layoutX="40.0" layoutY="40.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Current Bonds" toggleGroup="$grupoCatalogacao" />
-                                                        <ToggleButton alignment="CENTER_LEFT" layoutX="40.0" layoutY="70.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Trade Bonds" toggleGroup="$grupoCatalogacao" />
+                                             </toggleGroup></ToggleButton>
                                                     </children>
                                                 </VBox>
                                                 <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Traders" toggleGroup="$grupoMenus">
@@ -61,12 +57,10 @@
                                                 </ToggleButton>
                                                 <VBox fx:id="boxVisitas" styleClass="box-submenus">
                                                     <children>
-                                                        <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="My Traders">
-                                                            <toggleGroup>
+                                                        <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Current Traders">
+                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="grupoVisitantes" />
-                                                            </toggleGroup>
-                                                        </ToggleButton>
-                                                        <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Current Traders" toggleGroup="$grupoVisitantes" />
+                                             </toggleGroup></ToggleButton>
                                                     </children>
                                                 </VBox>
                                                 <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="145.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="News" toggleGroup="$grupoMenus">
@@ -78,16 +72,6 @@
                                                 </ToggleButton>
                                                 <VBox fx:id="boxEmprestimo" layoutX="10.0" layoutY="180.0" styleClass="box-submenus">
                                        <children>
-                                          <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Watchlist">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="grupoVisitantes1" />
-                                             </toggleGroup>
-                                          </ToggleButton>
-                                          <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="My Articles">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="grupoVisitantes11" />
-                                             </toggleGroup>
-                                          </ToggleButton>
                                           <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Subcribes">
                                              <toggleGroup>
                                                 <ToggleGroup fx:id="grupoVisitantes111" />
@@ -111,16 +95,6 @@
                                                 </ToggleButton>
                                                 <VBox fx:id="boxUtilitarios" layoutX="10.0" layoutY="335.0" styleClass="box-submenus">
                                                     <children>
-                                          <ToggleButton fx:id="btnEditProfile" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#editProfile" styleClass="submenus" text="Edit Profile">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="grupoUtilidades2" />
-                                             </toggleGroup>
-                                          </ToggleButton>
-                                                        <ToggleButton fx:id="BtnChangePassword" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changePassword" styleClass="submenus" text="Change Password">
-                                                            <toggleGroup>
-                                                                <ToggleGroup fx:id="grupoUtilidades" />
-                                                            </toggleGroup>
-                                                        </ToggleButton>
                                           <ToggleButton fx:id="btnDesactivate" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#desactivate" styleClass="submenus" text="Desactivate">
                                              <toggleGroup>
                                                 <ToggleGroup fx:id="grupoUtilidades1" />

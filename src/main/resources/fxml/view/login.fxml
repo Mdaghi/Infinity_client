@@ -20,24 +20,28 @@
                 <ImageView fitHeight="100.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" styleClass="logo" />
                 <AnchorPane prefHeight="240.0" prefWidth="400.0">
                     <children>
-                        <AnchorPane layoutY="15.0" prefHeight="223.0" prefWidth="400.0" styleClass="box-login" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane layoutY="15.0" prefHeight="251.0" prefWidth="400.0" style="-fx-background-color: rgba(29, 31, 61, 0.60);" styleClass="box-login" AnchorPane.bottomAnchor="-26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
                             <children>
-                                <TextField fx:id="txtUsername" layoutX="68.0" layoutY="65.0" prefHeight="40.0" prefWidth="336.0" promptText="username" styleClass="nome" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                                <TextField fx:id="txtUsername" accessibleRole="PASSWORD_FIELD" layoutX="21.0" layoutY="52.0" prefHeight="40.0" prefWidth="336.0" promptText="username" styleClass="nome" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="52.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </TextField>
-                                <PasswordField fx:id="txtPassword" layoutX="68.0" layoutY="120.0" prefHeight="40.0" prefWidth="333.0" promptText="password" styleClass="senha" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="110.0">
+                                <PasswordField fx:id="txtPassword" accessibleRole="TEXT_FIELD" layoutX="23.0" layoutY="102.0" prefHeight="40.0" prefWidth="333.0" promptText="password" styleClass="senha" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="102.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </PasswordField>
-                                <Button layoutX="16.0" layoutY="162.0" mnemonicParsing="false" onAction="#login" prefHeight="20.0" styleClass="bt-logar" text="Enter" textFill="WHITE" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                                <Button layoutX="17.0" layoutY="174.0" mnemonicParsing="false" onAction="#login" prefHeight="20.0" styleClass="bt-seif" text="Enter" textFill="WHITE" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="17.0">
                                     <font>
                                         <Font size="16.0" />
                                     </font>
                                 </Button>
-                        <Hyperlink fx:id="BtnRegistration" alignment="CENTER" layoutX="88.0" layoutY="213.0" onAction="#Registration" prefHeight="39.0" prefWidth="213.0" styleClass="link" text="Create a User Account" textAlignment="CENTER" />
+                        <Hyperlink fx:id="BtnRegistration" alignment="CENTER" layoutX="23.0" layoutY="215.0" onAction="#Registration" prefHeight="39.0" prefWidth="358.0" text="Create a User Account" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Hyperlink>
                             </children>
                         </AnchorPane>
                         <StackPane layoutY="-3.0" prefHeight="40.0" prefWidth="248.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

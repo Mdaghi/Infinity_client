@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ActivationController">
+    <children>
+        <VBox alignment="CENTER" fillWidth="false" prefHeight="619.0" prefWidth="445.0" spacing="15.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="67.0" fitWidth="396.0" pickOnBounds="true" preserveRatio="true" styleClass="logo" />
+                <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="491.0" prefWidth="477.0">
+                    <children>
+                        <AnchorPane layoutX="53.0" layoutY="11.0" prefHeight="434.0" prefWidth="372.0" style="-fx-background-color: rgba(29, 31, 61, 0.60);" styleClass="box-login" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="11.0">
+                            <children>
+                                <TextField fx:id="txtEmail" layoutX="25.0" layoutY="322.0" prefHeight="40.0" prefWidth="300.0" promptText="Email" styleClass="registration" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="321.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                                <PasswordField fx:id="txtCode" accessibleRole="TEXT_FIELD" layoutX="25.0" layoutY="153.0" prefHeight="40.0" prefWidth="300.0" promptText="Activation code" styleClass="registration">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </PasswordField>
+                                <Label layoutX="26.0" layoutY="55.0" prefHeight="17.0" prefWidth="115.0" />
+                                <Hyperlink fx:id="linkResend" alignment="CENTER" layoutX="-2.0" layoutY="114.0" onAction="#resendValidationCode" prefHeight="28.0" prefWidth="372.0" text="Click here to resend the activation code" textAlignment="CENTER" textFill="#abb1db">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Hyperlink>
+                                <Label alignment="CENTER" layoutX="14.0" layoutY="277.0" prefHeight="20.0" prefWidth="334.0" text="Try another email address" textFill="#abb1db">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
+                                <Button fx:id="activate" layoutX="25.0" layoutY="212.0" mnemonicParsing="false" onAction="#activationAccount" prefHeight="35.0" prefWidth="300.0" styleClass="bt-seif" text="Activate " />
+                                <Button fx:id="btnChangingMail" layoutX="25.0" layoutY="381.0" mnemonicParsing="false" onAction="#changingMailAddress" prefHeight="35.0" prefWidth="300.0" styleClass="bt-seif" text="Changing Email Address " />
+                            </children>
+                        </AnchorPane>
+                        <StackPane layoutY="-6.0" prefHeight="67.0" prefWidth="491.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="-6.0">
+                     <children>
+                                <ImageView fitHeight="61.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true" styleClass="login-img" />
+                                <Label alignment="CENTER" prefHeight="30.0" prefWidth="160.0" styleClass="login-txt" text="Activation Account ">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                     </children>
+                        </StackPane>
+                  <Text fill="WHITE" layoutX="83.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Before you can login, ">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Text>
+                  <Text fill="WHITE" layoutX="82.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="you must active your account with the code sent to your email address.">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Text>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+        <HBox alignment="CENTER" maxHeight="30.0" prefHeight="30.0" spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Hyperlink text="MuseuID" textAlignment="CENTER">
+                    <styleClass>
+                        <String fx:value="link" />
+                        <String fx:value="link-museuid" />
+                    </styleClass>
+                </Hyperlink>
+                <Hyperlink layoutX="477.0" layoutY="17.0" text="GeoPark Araripe" textAlignment="CENTER">
+                    <styleClass>
+                        <String fx:value="link" />
+                        <String fx:value="link-geopark" />
+                    </styleClass>
+                </Hyperlink>
+            </children>
+        </HBox>
+        <HBox styleClass="box-janela" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button mnemonicParsing="false" styleClass="minimizar" text="Minimizar" />
+                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="close" text="Fechar" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

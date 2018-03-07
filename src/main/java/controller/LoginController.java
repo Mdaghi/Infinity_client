@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import tn.esprit.infinity_server.interfaces.AddressRemote;
+import tn.esprit.infinity_server.interfaces.AdmininstratorRemote;
 import tn.esprit.infinity_server.interfaces.TradorRemote;
 import tn.esprit.infinity_server.interfaces.UserRemote;
 import tn.esprit.infinity_server.persistence.Address;
@@ -35,7 +36,8 @@ public class LoginController implements Initializable {
 	UserRemote UserProxy;
 	AddressRemote AddressProxy;
 	TradorRemote TraderProxy;
-	
+	AdmininstratorRemote adminProxy;
+
 	//////////////////////////////////
 	@FXML
 	private AnchorPane pane;
@@ -46,55 +48,80 @@ public class LoginController implements Initializable {
 	@FXML
 	private Label login;
 	@FXML
-    private Hyperlink BtnRegistration;
+	private Hyperlink BtnRegistration;
 
 	@FXML
 	private void login(ActionEvent event) throws NamingException, IOException {
 		// Ajout simple User
-		//addUser(txtUsername.getText(),txtPassword.getText());
+		// addUser(txtUsername.getText(),txtPassword.getText());
 		// Ajout Trader
-		//addTrader(txtUsername.getText(),txtPassword.getText());
+		// addTrader(txtUsername.getText(),txtPassword.getText());
+		// Ajout Admin
+		//addAdmin(txtUsername.getText(), txtPassword.getText());
 		String jndiName = "infinity_server-ear/infinity_server-ejb/UserService!tn.esprit.infinity_server.interfaces.UserRemote";
 		Context context = new InitialContext();
 		UserProxy = (UserRemote) context.lookup(jndiName);
-
 		System.out.println(txtUsername.getText());
 		System.out.println(txtPassword.getText());
 		User user = UserProxy.authenticate(txtUsername.getText(), txtPassword.getText());
 		if (user != null) {
-			if (user instanceof Trader) {
-				// interface Trader
+			if (user instanceof Client) {
+				// interface Client
 				Session.setUser(user);
-				Trader trader = (Trader) user;
-				Stage stage = new Stage();
-				Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Client.fxml"));
-				Scene scene = new Scene(root);
-				stage.setScene(scene);
-				stage.show();
-				Stage primaryStage = (Stage) pane.getScene().getWindow();
-				primaryStage.close();
-				System.out.println(trader.getGrade());				
-			} else if (user instanceof Client) {
-				// Client
-			} else if (user instanceof Administrator) {
+				if (user.getActivate() == 1) {
+					Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Client.fxml"));
+					Stage stage = new Stage();
+					Scene scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+					Stage primaryStage = (Stage) pane.getScene().getWindow();
+					primaryStage.close();
+				} else {
+					Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Activation.fxml"));
+					Stage stage = new Stage();
+					Scene scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+					Stage primaryStage = (Stage) pane.getScene().getWindow();
+					primaryStage.close();
+				}
+			} else if (user instanceof Trader) {
+				// Interface Trader
+				Session.setUser(user);
+				if (user.getActivate() == 1) {
+					Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Trader.fxml"));
+					Stage stage = new Stage();
+					Scene scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+					Stage primaryStage = (Stage) pane.getScene().getWindow();
+					primaryStage.close();
+				} else {
+					Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Activation.fxml"));
+					Stage stage = new Stage();
+					Scene scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+					Stage primaryStage = (Stage) pane.getScene().getWindow();
+					primaryStage.close();
+				}
+			} else if(user instanceof Administrator) {
 				// Admin
-			} else {
-				// User
 				Session.setUser(user);
 				Stage stage = new Stage();
-				Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Client.fxml"));
+				Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Administrator.fxml"));
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
 				Stage primaryStage = (Stage) pane.getScene().getWindow();
 				primaryStage.close();
-			}
+			} 
 		}
 
 	}
-	
+
 	@FXML
-    private void Registration(ActionEvent event) throws IOException {
+	private void Registration(ActionEvent event) throws IOException {
 		Stage stage = new Stage();
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Registration.fxml"));
 		Scene scene = new Scene(root);
@@ -102,7 +129,7 @@ public class LoginController implements Initializable {
 		stage.show();
 		Stage primaryStage = (Stage) pane.getScene().getWindow();
 		primaryStage.close();
-    }
+	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -132,7 +159,7 @@ public class LoginController implements Initializable {
 		u.setAddress(address);
 		u.setLogin(login);
 		u.setPassword(password);
-		u.setActivate(false);
+		u.setActivate(0);
 		u.setCode("147852369");
 		u.setEmail("seifeddine.mdaghi@esprit.tn");
 		u.setFirstname("Mdaghi");
@@ -148,6 +175,7 @@ public class LoginController implements Initializable {
 		///
 		UserProxy.CreateUser(u);
 	}
+
 	// Add Trader
 	public void addTrader(String login, String password) throws NamingException {
 
@@ -172,7 +200,7 @@ public class LoginController implements Initializable {
 		trader.setAddress(address);
 		trader.setLogin(login);
 		trader.setPassword(password);
-		trader.setActivate(false);
+		trader.setActivate(0);
 		trader.setCode("147852369");
 		trader.setEmail("seifeddine.mdaghi@esprit.tn");
 		trader.setFirstname("Mdaghi");
@@ -189,7 +217,47 @@ public class LoginController implements Initializable {
 		///
 		TraderProxy.CreateTrader(trader);
 	}
-	
-	
+
+	// Add Admin
+	public void addAdmin(String login, String password) throws NamingException {
+
+		//
+		String jndiName = "infinity_server-ear/infinity_server-ejb/AdmininstratorService!tn.esprit.infinity_server.interfaces.AdmininstratorRemote";
+		Context context = new InitialContext();
+		adminProxy = (AdmininstratorRemote) context.lookup(jndiName);
+		//
+		jndiName = "infinity_server-ear/infinity_server-ejb/ServiceAddress!tn.esprit.infinity_server.interfaces.AddressRemote";
+		context = new InitialContext();
+		AddressProxy = (AddressRemote) context.lookup(jndiName);
+
+		/// Creation D'adresse
+		Address address = new Address();
+		address.setCity("Tunis");
+		address.setCountry("Tunisia");
+		address.setNumber(9);
+		address.setPostalCode("2048");
+		address.setStreet("Habib bourguiba");
+		/// Ajout trader
+		Administrator admin = new Administrator();
+		admin.setAddress(address);
+		admin.setLogin(login);
+		admin.setPassword(password);
+		admin.setActivate(0);
+		admin.setCode("147852369");
+		admin.setEmail("seifeddine.mdaghi@esprit.tn");
+		admin.setFirstname("Mdaghi");
+		admin.setLastname("Seifeddine");
+		admin.setPhoneNumber("52461623");
+		admin.setRole("super admin");
+		//
+		// List<SaveArticle> Articles = new ArrayList<SaveArticle>();
+		// u.setSaveArticles(Articles);
+		//
+		// List<SubscribeNewsSource> subscribe = new
+		// ArrayList<SubscribeNewsSource>();
+		// u.setSubscribeNewsSource(subscribe);
+		///
+		adminProxy.CreateAdmin(admin);
+	}
 
 }

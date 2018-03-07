@@ -17,7 +17,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>tn.esprit</groupId>
@@ -26,27 +26,73 @@
 			<type>ejb</type>
 		</dependency>
 
-
+		<!-- Wildfly dependency -->
 		<dependency>
 			<groupId>org.wildfly</groupId>
 			<artifactId>wildfly-ejb-client-bom</artifactId>
 			<version>9.0.0.Alpha1</version>
 			<type>pom</type>
 		</dependency>
-				
+		<!-- Sending mail API -->
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 			<version>1.5.5</version>
 		</dependency>
-		
 
-			<dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+		<!-- JavaFx junit dependency -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Hibernate dependency -->
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.10.Final</version>
 			<type>pom</type>
 		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.kevinsawicki</groupId>
+			<artifactId>http-request</artifactId>
+			<version>5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.guigarage</groupId>
+			<artifactId>controls</artifactId>
+			<version>0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jfoenix</groupId>
+			<artifactId>jfoenix</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<!-- controlsfx dependency -->
+		<dependency>
+			<groupId>org.controlsfx</groupId>
+			<artifactId>controlsfx</artifactId>
+			<version>8.40.14</version>
+		</dependency>
+		<dependency>
+			<groupId>org.controlsfx</groupId>
+			<artifactId>openjfx-dialogs</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<organization>
