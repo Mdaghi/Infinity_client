@@ -110,12 +110,12 @@
                            <toggleGroup>
                               <ToggleGroup fx:id="grupoCatalogacao" />
                            </toggleGroup></ToggleButton>
-                        <ToggleButton layoutX="368.0" layoutY="10.0" mnemonicParsing="false" onAction="#unsubscribeToNewsSource" text="Button" toggleGroup="$grupoCatalogacao">
+                        <ToggleButton layoutX="368.0" layoutY="10.0" mnemonicParsing="false" onAction="#subscribeToNewsSource" text="Button" toggleGroup="$grupoCatalogacao">
                            <styleClass>
                               <String fx:value="menu-confirm" />
                               <String fx:value="submenus" />
                            </styleClass></ToggleButton>
-                        <ToggleButton layoutX="420.0" layoutY="10.0" minHeight="20.0" mnemonicParsing="false" onAction="#subscribeToNewsSource" prefWidth="30.0" text="Button" toggleGroup="$grupoCatalogacao">
+                        <ToggleButton layoutX="420.0" layoutY="10.0" minHeight="20.0" mnemonicParsing="false" onAction="#unsubscribeToNewsSource" prefWidth="30.0" text="Button" toggleGroup="$grupoCatalogacao">
                            <styleClass>
                               <String fx:value="menu-delete" />
                               <String fx:value="submenus" />
