@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -129,7 +130,7 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        buildArticles();
+       /* buildArticles();
         buildNewsSources();
         buildTrendingArticles();
         buildTotalCount();
@@ -164,7 +165,7 @@ public class DashboardController implements Initializable {
         }));
         quotesCallBackerSymbols.setCycleCount(Timeline.INDEFINITE);
         quotesCallBackerSymbols.play();
-
+*/
     }
 
     void buildNewsSources() {
@@ -182,13 +183,13 @@ public class DashboardController implements Initializable {
         n2.setName("Bitcoin");
         dataNewsSource.add(n2);
 
-        newsSources.setCellFactory(v -> new SimpleMediaListCell<>());
+      //  newsSources.setCellFactory(v -> new SimpleMediaListCell<>());
         newsSources.setItems(dataNewsSource);
 
     }
 
     void buildTrendingArticles() {
-        ObservableList<Article> dataArticles = FXCollections.observableArrayList();
+       /* ObservableList<Article> dataArticles = FXCollections.observableArrayList();
         String response = HttpRequest.get("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a74a9e61aec64107a03439feaac82197")
                 .accept("application/json")
                 .body();
@@ -220,6 +221,7 @@ public class DashboardController implements Initializable {
         });
         articlesTrending.setCellFactory(v -> new SimpleMediaListCell<>());
         articlesTrending.setItems(dataArticles);
+        
     }
 
     void buildArticles() {
@@ -274,6 +276,7 @@ public class DashboardController implements Initializable {
 
             area.getChildren().add(articleArea);
         }
+        */
     }
 
     void buildQuotes() {
@@ -427,11 +430,11 @@ public class DashboardController implements Initializable {
         terminalCursor.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 17;");
         terminal.getChildren().add(terminalCursor);
         terminalContent = new JFXTextField();
-        terminalContent.setOnKeyPressed(event -> {
+      /*  terminalContent.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 executeTerminal();
             }
-        });
+        });*/
         terminalContent.setPrefWidth(1800);
         terminalContent.setStyle("-fx-border-width: 0px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-border-color: #000; -fx-font-size: 14; -fx-background-color: rgba(51, 51, 51, 1);");
         terminal.getChildren().add(terminalContent);

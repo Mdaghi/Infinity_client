@@ -49,15 +49,15 @@ public class FXMLController implements Initializable {
 		bondsoffers.setCouponRate(f);
 		bondsoffers.setDenomination(l);
 		bondsoffers.setFrequencyRate("a");
-		bondsoffers.setMaturityDate(date);
+		//bondsoffers.setMaturityDate(date);
 		bondsoffers.setImgPath("a");
 		bondsoffers.setOwner("a");
 		bondsoffers.setInterestRate("a");
 		bondsoffers.setPrintPlace("a");
 		bondsoffers.setSecurityNumber(l);
-		bondsoffers.setIssueDate(date);
+		//bondsoffers.setIssueDate(date);
 		bondsoffers.setSeries("a");
-		bondsoffers.setPrintDate(date);
+		//bondsoffers.setPrintDate(date);
 		proxy.addBondsOffers(bondsoffers);
     }
     @FXML
@@ -87,15 +87,15 @@ public class FXMLController implements Initializable {
 			bondsoffers.setCouponRate(f);
 			bondsoffers.setDenomination(l);
 			bondsoffers.setFrequencyRate("b");
-			bondsoffers.setMaturityDate(date);
+			//bondsoffers.setMaturityDate(date);
 			bondsoffers.setImgPath("b");
 			bondsoffers.setOwner("b");
 			bondsoffers.setInterestRate("a");
 			bondsoffers.setPrintPlace("a");
 			bondsoffers.setSecurityNumber(l);
-			bondsoffers.setIssueDate(date);
+			//bondsoffers.setIssueDate(date);
 			bondsoffers.setSeries("a");
-			bondsoffers.setPrintDate(date);
+			//bondsoffers.setPrintDate(date);
 			proxy.updateBondsOffers(bondsoffers);
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
