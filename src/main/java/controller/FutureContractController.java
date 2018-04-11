@@ -90,6 +90,10 @@ public class FutureContractController implements Initializable {
 	ObservableList<FutureContractTw> futureObser = FXCollections.observableArrayList();
 	
 	private static Timeline dataTimer = new Timeline();
+	
+	public static int idContract;
+
+	
 
 	/**
 	 * Initializes the controller class.
@@ -160,10 +164,14 @@ public class FutureContractController implements Initializable {
 				});
 				btnDelete.setStyle("-fx-background-color:#D9534F;-fx-text-fill:white");
 				futureContractTw.setDelete(btnDelete);
+				System.out.println(futureContractTw.getId());
 				/*********************/
 				JFXButton btnUpdate = new JFXButton("Update");
 				btnUpdate.setOnAction((ActionEvent event2) -> {
+					System.out.println(futureContractTw.getId());
+					setIdContract(futureContract.getId());
 					try {
+						
 						FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/view/UpdateFuture.fxml"));
 						Parent sceneMain;
 						sceneMain = loader.load();
@@ -173,7 +181,7 @@ public class FutureContractController implements Initializable {
 						st.initModality(Modality.WINDOW_MODAL);
 						st.show();
 					} catch (Exception e) {
-						Logger.getLogger(SymboleService.class.getName()).log(Level.WARNING, " Load :" + e);
+						Logger.getLogger(SymboleService.class.getName()).log(Level.INFO, " Load :" + e);
 					}
 					//
 				});
@@ -183,7 +191,8 @@ public class FutureContractController implements Initializable {
 				JFXButton btnSpeculation = new JFXButton("speculation");
 				btnSpeculation.setOnAction((ActionEvent event3) -> {
 					try {
-						FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/view/AddFuture.fxml"));
+						setIdContract(futureContract.getId());
+						FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/view/speculate.fxml"));
 						Parent sceneMain;
 						sceneMain = loader.load();
 						Stage st = new Stage();
@@ -265,8 +274,10 @@ public class FutureContractController implements Initializable {
 			futureContractTw.setDelete(btnDelete);
 			/*********************/
 			JFXButton btnUpdate = new JFXButton("Update");
-			btnUpdate.setOnAction((ActionEvent event) -> {
+			btnUpdate.setOnAction((ActionEvent event2) -> {
+				setIdContract(futureContract.getId());
 				try {
+					
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/view/UpdateFuture.fxml"));
 					Parent sceneMain;
 					sceneMain = loader.load();
@@ -276,7 +287,7 @@ public class FutureContractController implements Initializable {
 					st.initModality(Modality.WINDOW_MODAL);
 					st.show();
 				} catch (Exception e) {
-					Logger.getLogger(SymboleService.class.getName()).log(Level.WARNING, " Load :" + e);
+					Logger.getLogger(SymboleService.class.getName()).log(Level.INFO, " Load :" + e);
 				}
 				//
 			});
@@ -286,7 +297,8 @@ public class FutureContractController implements Initializable {
 			JFXButton btnSpeculation = new JFXButton("speculation");
 			btnSpeculation.setOnAction((ActionEvent event) -> {
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/view/AddFuture.fxml"));
+					setIdContract(futureContract.getId());
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/view/speculate.fxml"));
 					Parent sceneMain;
 					sceneMain = loader.load();
 					Stage st = new Stage();
@@ -314,6 +326,14 @@ public class FutureContractController implements Initializable {
 
 	public static void setDataTimer(Timeline dataTimer) {
 		FutureContractController.dataTimer = dataTimer;
+	}
+	
+	public static int getIdContract() {
+		return idContract;
+	}
+
+	public static void setIdContract(int idContract) {
+		FutureContractController.idContract = idContract;
 	}
 
 }
