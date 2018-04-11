@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CalculateFutureController">
+    <children>
+        <HBox prefHeight="60.0" prefWidth="1207.0" styleClass="box-topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="lbTitulo" alignment="BOTTOM_CENTER" layoutX="10.0" maxWidth="1.7976931348623157E308" prefHeight="59.0" prefWidth="782.0" style="-fx-text-fill: #abb1db;" styleClass="titulo" text="Calculate Future Contract" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+                </Label>
+            <MediaView fitHeight="200.0" fitWidth="200.0" />
+            </children>
+        </HBox>
+        <GridPane fx:id="telaCadastro" hgap="10.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="905.0" minWidth="10.0" prefWidth="685.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="235.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" />
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+        </GridPane>
+        <AnchorPane fx:id="telaEdicao" prefHeight="650.0" prefWidth="1020.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <Label fx:id="fieldset" layoutX="19.0" layoutY="14.0" prefHeight="310.0" prefWidth="252.0" style="-fx-border-color: #565982; -fx-border-radius: 5;" />
+            <Label layoutX="669.0" layoutY="20.0" prefHeight="301.0" prefWidth="337.0" style="-fx-background-color: #565982;" />
+            <MediaView fx:id="media" fitHeight="200.0" fitWidth="300.0" layoutX="689.0" layoutY="36.0" />
+            <AnchorPane id="AnchorPane" layoutX="675.0" layoutY="247.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="324.0" style="-fx-background-color: rgba(0,0,0,0.65);&#10;-fx-background-radius: 10;&#10;-fxborder-color: transparent;&#10;-fx-border-radius: 10;&#10;&#10;">
+               <children>
+                  <Group id="Group" layoutX="-24.0" layoutY="4.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                        <ImageView id="media_playback_start.png" fitHeight="35.0" fitWidth="35.0" layoutX="45.0" layoutY="19.0" mouseTransparent="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/media_playback_start.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btnPlay" contentDisplay="GRAPHIC_ONLY" layoutX="44.0" layoutY="20.0" minWidth="37.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="37.0" style="-fx-background-color: transparent" text="Button" />
+                        <Label fx:id="timeLabel" alignment="CENTER" layoutX="31.0" layoutY="1.0" prefWidth="72.0" text="00:00:00" textFill="WHITE" />
+                        <Slider fx:id="timeSlider" layoutX="109.0" layoutY="2.0" prefHeight="14.0" prefWidth="229.0" />
+                        <Label fx:id="titleLabel" layoutX="132.0" layoutY="24.0" prefHeight="17.0" prefWidth="80.0" text="Future Market" textFill="WHITE" />
+                        <Slider fx:id="volSlider" layoutX="254.0" layoutY="28.0" max="1.0" prefHeight="14.0" prefWidth="80.0" />
+                        <ImageView fx:id="volImage" fitHeight="35.0" fitWidth="35.0" layoutX="218.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/audio_volume_low_newschool.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView id="media_skip_forward.png" fitHeight="35.0" fitWidth="35.0" layoutX="86.0" layoutY="19.0" mouseTransparent="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/media_playback_stop.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btnStop" contentDisplay="GRAPHIC_ONLY" layoutX="85.0" layoutY="18.0" minWidth="37.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="37.0" style="-fx-background-color: transparent" text="Button" />
+                     </children>
+                  </Group>
+               </children>
+            </AnchorPane>
+            <Label fx:id="txtFirstname" layoutX="38.0" layoutY="26.0" prefHeight="20.0" prefWidth="209.0" text="Interest Rate Per Time Period :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtInterest" layoutX="36.0" layoutY="56.0" prefHeight="35.0" prefWidth="209.0" promptText="Interest" styleClass="campo-texto" />
+            <Label layoutX="37.0" layoutY="102.0" prefHeight="20.0" prefWidth="209.0" text="Number of Time Periods :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="181.0" prefHeight="20.0" prefWidth="200.0" text="Present Value :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPresentValue" layoutX="35.0" layoutY="212.0" prefHeight="35.0" prefWidth="209.0" promptText="Present value" styleClass="campo-texto" />
+            <TextField fx:id="txtPeriod" layoutX="37.0" layoutY="134.0" prefHeight="35.0" prefWidth="209.0" promptText="Time Period" styleClass="campo-texto" />
+            <Button id="" fx:id="btnCalculate" contentDisplay="TOP" layoutX="39.0" layoutY="265.0" mnemonicParsing="false" onAction="#valide" prefHeight="40.0" prefWidth="200.0" style="" text="Calculate">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-adicionar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+            <LineChart fx:id="chart" layoutX="19.0" layoutY="343.0" prefHeight="221.0" prefWidth="983.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <JFXTextArea fx:id="report" layoutX="291.0" layoutY="17.0" prefHeight="301.0" prefWidth="357.0" />
+         </children>
+        </AnchorPane>
+    </children>
+    <stylesheets>
+        <URL value="@../css/default.css" />
+        <URL value="@../css/custom.css" />
+    </stylesheets>
+</AnchorPane>

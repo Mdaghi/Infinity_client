@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.Future;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -54,9 +55,9 @@ import tn.esprit.infinity_server.persistence.User;
  */
 public class ClientController implements Initializable {
 	
-	UserRemote UserProxy;
-	AddressRemote AddressProxy;
-	TradorRemote TraderProxy;
+	UserRemote userProxy;
+	AddressRemote addressProxy;
+	TradorRemote traderProxy;
 	/////////
 	
     @FXML
@@ -71,6 +72,13 @@ public class ClientController implements Initializable {
     private ToggleButton BtnChangePassword;
     @FXML
     private ToggleButton btnDesactivate;
+    
+    @FXML
+    private ToggleButton btnRealTimeData;
+    @FXML
+    private ToggleButton btnCalculator;
+    @FXML
+    private ToggleButton btnManageFuture;
     /**
      * Initializes the controller class.
      */
@@ -91,6 +99,7 @@ public class ClientController implements Initializable {
     }
 	@FXML
     private void Logout(ActionEvent event) throws IOException {
+		clearSound();
     	Session.setUser(new User());
 		Stage stage = new Stage();
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Login.fxml"));
@@ -102,14 +111,35 @@ public class ClientController implements Initializable {
     }
 	@FXML
     private void editProfile(ActionEvent event) throws IOException {
+		clearSound();
 		container.getChildren().clear();
 		container.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/fxml/view/Profile.fxml")));
     }
-
+	@FXML
+    private void calculate(ActionEvent event) throws IOException {
+		FutureController.stopListener();
+    	container.getChildren().removeAll();
+    	container.getChildren().clear();
+		container.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/fxml/view/CalculateFuture.fxml")));
+    }
+	@FXML
+    private void historic(ActionEvent event) throws IOException {
+		container.getChildren().clear();
+    	container.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/fxml/view/Historique.fxml")));
+    	clearSound();
+    }
     @FXML
     private void changePassword(ActionEvent event) throws IOException {
     	container.getChildren().clear();
-		container.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/fxml/view/ChangePassword.fxml")));
+    	container.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/fxml/view/ChangePassword.fxml")));
+    	clearSound();
+    }
+    @FXML
+    private void RealTimeData(ActionEvent event) throws IOException {
+    	CalculateFutureController.stopListener();
+    	container.getChildren().removeAll();
+    	container.getChildren().clear();
+		container.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/fxml/view/Future.fxml")));
     }
 
     @FXML
@@ -122,7 +152,7 @@ public class ClientController implements Initializable {
     	if (result.get() == ButtonType.OK){
     		User user = Session.getUser();
     		user.setActivate(0);
-    	    UserProxy.updateUser(user);
+    	    userProxy.updateUser(user);
     	    Notifications notificationBuilder = Notifications.create().title("")
     				.text("your account has been disactivate").darkStyle().graphic(null)
     				.hideAfter(Duration.seconds(10)).position(Pos.BOTTOM_RIGHT);
@@ -136,10 +166,15 @@ public class ClientController implements Initializable {
     {
     	String jndiName = "infinity_server-ear/infinity_server-ejb/UserService!tn.esprit.infinity_server.interfaces.UserRemote";
 		Context context = new InitialContext();
-		UserProxy = (UserRemote) context.lookup(jndiName);
+		userProxy = (UserRemote) context.lookup(jndiName);
 		
 		jndiName = "infinity_server-ear/infinity_server-ejb/ServiceAddress!tn.esprit.infinity_server.interfaces.AddressRemote";
 		context = new InitialContext();
-		AddressProxy = (AddressRemote) context.lookup(jndiName);
+		addressProxy = (AddressRemote) context.lookup(jndiName);
+    }
+    public void clearSound()
+    {
+    	FutureController.stopListener();
+    	CalculateFutureController.stopListener();
     }
 }

@@ -3,6 +3,8 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -30,12 +32,13 @@ import tn.esprit.infinity_server.persistence.Administrator;
 import tn.esprit.infinity_server.persistence.Client;
 import tn.esprit.infinity_server.persistence.Trader;
 import tn.esprit.infinity_server.persistence.User;
+import tn.esprit.infinity_server.services.SymboleService;
 
 public class LoginController implements Initializable {
 
-	UserRemote UserProxy;
-	AddressRemote AddressProxy;
-	TradorRemote TraderProxy;
+	UserRemote userProxy;
+	AddressRemote addressProxy;
+	TradorRemote traderProxy;
 	AdmininstratorRemote adminProxy;
 
 	//////////////////////////////////
@@ -48,22 +51,23 @@ public class LoginController implements Initializable {
 	@FXML
 	private Label login;
 	@FXML
-	private Hyperlink BtnRegistration;
+	private Hyperlink btnRegistration;
 
 	@FXML
 	private void login(ActionEvent event) throws NamingException, IOException {
+		
+		/****
 		// Ajout simple User
 		// addUser(txtUsername.getText(),txtPassword.getText());
 		// Ajout Trader
-		// addTrader(txtUsername.getText(),txtPassword.getText());
+		//addTrader(txtUsername.getText(),txtPassword.getText());
 		// Ajout Admin
 		//addAdmin(txtUsername.getText(), txtPassword.getText());
+		 *****/
 		String jndiName = "infinity_server-ear/infinity_server-ejb/UserService!tn.esprit.infinity_server.interfaces.UserRemote";
 		Context context = new InitialContext();
-		UserProxy = (UserRemote) context.lookup(jndiName);
-		System.out.println(txtUsername.getText());
-		System.out.println(txtPassword.getText());
-		User user = UserProxy.authenticate(txtUsername.getText(), txtPassword.getText());
+		userProxy = (UserRemote) context.lookup(jndiName);
+		User user = userProxy.authenticate(txtUsername.getText(), txtPassword.getText());
 		if (user != null) {
 			if (user instanceof Client) {
 				// interface Client
@@ -121,7 +125,7 @@ public class LoginController implements Initializable {
 	}
 
 	@FXML
-	private void Registration(ActionEvent event) throws IOException {
+	private void registration(ActionEvent event) throws IOException {
 		Stage stage = new Stage();
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Registration.fxml"));
 		Scene scene = new Scene(root);
@@ -133,19 +137,21 @@ public class LoginController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		Logger.getLogger(SymboleService.class.getName()).log(Level.WARNING, " initialize ");
 
 	}
 
+	/****
 	public void addUser(String login, String password) throws NamingException {
 
 		//
 		String jndiName = "infinity_server-ear/infinity_server-ejb/UserService!tn.esprit.infinity_server.interfaces.UserRemote";
 		Context context = new InitialContext();
-		UserProxy = (UserRemote) context.lookup(jndiName);
+		userProxy = (UserRemote) context.lookup(jndiName);
 		//
 		jndiName = "infinity_server-ear/infinity_server-ejb/ServiceAddress!tn.esprit.infinity_server.interfaces.AddressRemote";
 		context = new InitialContext();
-		AddressProxy = (AddressRemote) context.lookup(jndiName);
+		addressProxy = (AddressRemote) context.lookup(jndiName);
 
 		/// Creation D'adresse
 		Address address = new Address();
@@ -165,16 +171,9 @@ public class LoginController implements Initializable {
 		u.setFirstname("Mdaghi");
 		u.setLastname("Seifeddine");
 		u.setPhoneNumber("52461623");
-		//
-		// List<SaveArticle> Articles = new ArrayList<SaveArticle>();
-		// u.setSaveArticles(Articles);
-		//
-		// List<SubscribeNewsSource> subscribe = new
-		// ArrayList<SubscribeNewsSource>();
-		// u.setSubscribeNewsSource(subscribe);
-		///
-		UserProxy.CreateUser(u);
+		userProxy.CreateUser(u);
 	}
+	****/
 
 	// Add Trader
 	public void addTrader(String login, String password) throws NamingException {
@@ -182,11 +181,11 @@ public class LoginController implements Initializable {
 		//
 		String jndiName = "infinity_server-ear/infinity_server-ejb/ServiceTrador!tn.esprit.infinity_server.interfaces.TradorRemote";
 		Context context = new InitialContext();
-		TraderProxy = (TradorRemote) context.lookup(jndiName);
+		traderProxy = (TradorRemote) context.lookup(jndiName);
 		//
 		jndiName = "infinity_server-ear/infinity_server-ejb/ServiceAddress!tn.esprit.infinity_server.interfaces.AddressRemote";
 		context = new InitialContext();
-		AddressProxy = (AddressRemote) context.lookup(jndiName);
+		addressProxy = (AddressRemote) context.lookup(jndiName);
 
 		/// Creation D'adresse
 		Address address = new Address();
@@ -207,15 +206,7 @@ public class LoginController implements Initializable {
 		trader.setLastname("Seifeddine");
 		trader.setPhoneNumber("52461623");
 		trader.setGrade(5);
-		//
-		// List<SaveArticle> Articles = new ArrayList<SaveArticle>();
-		// u.setSaveArticles(Articles);
-		//
-		// List<SubscribeNewsSource> subscribe = new
-		// ArrayList<SubscribeNewsSource>();
-		// u.setSubscribeNewsSource(subscribe);
-		///
-		TraderProxy.CreateTrader(trader);
+		traderProxy.CreateTrader(trader);
 	}
 
 	// Add Admin
@@ -228,7 +219,7 @@ public class LoginController implements Initializable {
 		//
 		jndiName = "infinity_server-ear/infinity_server-ejb/ServiceAddress!tn.esprit.infinity_server.interfaces.AddressRemote";
 		context = new InitialContext();
-		AddressProxy = (AddressRemote) context.lookup(jndiName);
+		addressProxy = (AddressRemote) context.lookup(jndiName);
 
 		/// Creation D'adresse
 		Address address = new Address();
@@ -249,14 +240,6 @@ public class LoginController implements Initializable {
 		admin.setLastname("Seifeddine");
 		admin.setPhoneNumber("52461623");
 		admin.setRole("super admin");
-		//
-		// List<SaveArticle> Articles = new ArrayList<SaveArticle>();
-		// u.setSaveArticles(Articles);
-		//
-		// List<SubscribeNewsSource> subscribe = new
-		// ArrayList<SubscribeNewsSource>();
-		// u.setSubscribeNewsSource(subscribe);
-		///
 		adminProxy.CreateAdmin(admin);
 	}
 

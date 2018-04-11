@@ -8,6 +8,8 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,8 +38,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import tn.esprit.infinity_server.interfaces.UserRemote;
-import tn.esprit.infinity_server.persistence.Client;
 import tn.esprit.infinity_server.persistence.User;
+import tn.esprit.infinity_server.services.SymboleService;
 
 /**
  * FXML Controller class
@@ -72,11 +74,12 @@ public class ActivationController implements Initializable {
 			context = new InitialContext();
 			userProxy = (UserRemote) context.lookup(jndiName);
 		} catch (NamingException e) {
-			System.out.println(e);
+			Logger.getLogger(SymboleService.class.getName()).log(Level.WARNING, " InitialContext :" + e);
 		}
 
 	}
 
+	@SuppressWarnings("unused")
 	@FXML
 	private void resendValidationCode(ActionEvent event) throws MessagingException {
 		User client =  userProxy.getUserById(Session.getUser());
@@ -115,6 +118,7 @@ public class ActivationController implements Initializable {
 
 	}
 
+	@SuppressWarnings("unused")
 	@FXML
 	private void changingMailAddress(ActionEvent event) throws MessagingException {
 		// Email Empty
@@ -126,7 +130,7 @@ public class ActivationController implements Initializable {
 			return;
 		}
 		// RegEx
-		Pattern patternEmail = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+		Pattern patternEmail = Pattern.compile("^([_a-zA-Z0-9-']+(\\.[_a-zA-Z0-9-']+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$", Pattern.CASE_INSENSITIVE);
 		Matcher regexEmail = patternEmail.matcher(txtEmail.getText());
 		if (!regexEmail.matches()) {
 			Notifications notificationBuilder = Notifications.create().title("").text("Invalid Email Format")

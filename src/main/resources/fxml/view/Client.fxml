@@ -128,6 +128,40 @@
                                           </ToggleButton>
                                                     </children>
                                                 </VBox>
+                                    <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="420.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Futures">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="grupoMenus1" />
+                                       </toggleGroup>
+                                       <styleClass>
+                                          <String fx:value="menus" />
+                                          <String fx:value="menu-utilidade" />
+                                          <String fx:value="menu-grupo" />
+                                       </styleClass>
+                                    </ToggleButton>
+                                    <VBox fx:id="boxUtilitarios1" layoutX="10.0" layoutY="455.0" styleClass="box-submenus">
+                                       <children>
+                                          <ToggleButton fx:id="btnRealTimeData" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RealTimeData" styleClass="submenus" text="Real Time Data Futures">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoUtilidades21" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="btnCalculator" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#calculate" styleClass="submenus" text="Calculator">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoUtilidades1" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="btnManageFuture" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Manage Futures">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoUtilidades11" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="btnHistoric" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#historic" styleClass="submenus" text="Historic">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoUtilidades111" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                       </children>
+                                    </VBox>
                                             </children>
                                         </VBox>
                                     </children>

@@ -8,6 +8,8 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,8 +37,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import tn.esprit.infinity_server.interfaces.UserRemote;
+import tn.esprit.infinity_server.persistence.Address;
 import tn.esprit.infinity_server.persistence.Client;
 import tn.esprit.infinity_server.persistence.User;
+import tn.esprit.infinity_server.services.SymboleService;
 
 /**
  * FXML Controller class
@@ -71,13 +75,13 @@ public class RegistrationController implements Initializable {
 			context = new InitialContext();
 			userProxy = (UserRemote) context.lookup(jndiName);
 		} catch (NamingException e) {
-			System.out.println(e);
+			Logger.getLogger(SymboleService.class.getName()).log(Level.WARNING, " initialize :" + e);
 		}
 
 	}
 
 	@FXML
-	private void registration(ActionEvent event) throws MessagingException, IOException, NamingException {
+	private void registration(ActionEvent event) throws MessagingException, IOException{
 
 		// check Empty fields
 		if (!valideEmptyRegistration())
@@ -98,9 +102,11 @@ public class RegistrationController implements Initializable {
 		client.setLogin(txtLogin.getText());
 		client.setPassword(txtPassword.getText());
 		client.setActivate(0);
+		client.setAddress(new Address());
 		// Generate Random code
 		client.setCode(StringGenerator.generateString());
 		// Sending verification Mail to valid Email
+		@SuppressWarnings("unused")
 		SendMail mail = new SendMail("Account activation Code", txtEmail.getText(), client.getCode());
 		// Add User and configuration of the Session
 		userProxy.CreateUser(client);
@@ -207,7 +213,7 @@ public class RegistrationController implements Initializable {
 	}
 
 	// validation unique login
-	public boolean valideUniqueLogin(String login) throws NamingException {
+	public boolean valideUniqueLogin(String login) {
 		if (!userProxy.checkUniqueLogin(login)) {
 			Notifications notificationBuilder = Notifications.create().title("").text("Login already exist ")
 					.darkStyle().graphic(null).hideAfter(Duration.seconds(5)).position(Pos.BOTTOM_RIGHT);
