@@ -37,6 +37,7 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 
 import java.util.Locale;
+/***
 import javax.speech.Engine;
 import javax.speech.EngineException;
 import javax.speech.EngineStateError;
@@ -48,6 +49,7 @@ import javax.speech.synthesis.Synthesizer;
 import com.sun.deploy.uitoolkit.impl.fx.HostServicesFactory;
 import com.sun.javafx.application.HostServicesDelegate;
 import com.sun.speech.freetts.*;
+***/
 
 import java.util.List;
 
@@ -1336,6 +1338,7 @@ public class DashboardController implements Initializable {
 
 	@FXML
 	void generateStockComment() {
+		/*
 		mystockTable.setVisible(false);
 		talkingRobot.setVisible(true);
 		robotDialog.setVisible(true);
@@ -1382,6 +1385,6 @@ public class DashboardController implements Initializable {
 		
 		talkingRobot.setVisible(false);
 		robotDialog.setVisible(false);
-
+		*/
 	}
 }

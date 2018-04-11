@@ -18,12 +18,13 @@ import javax.print.attribute.standard.PresentationDirection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+/*
 import simplenlg.framework.*;
 import simplenlg.lexicon.*;
 import simplenlg.realiser.english.*;
 import simplenlg.phrasespec.*;
 import simplenlg.features.*;
-
+*/
 class StockCommenter {
 
 	public static Map<String, String> buildDataFeedOnStock(String name) {
@@ -65,7 +66,7 @@ class StockCommenter {
 		return dataFeed;
 	}
 
-	public static String generateComment(String name, Float change, Float high, String date) {
+	/*public static String generateComment(String name, Float change, Float high, String date) {
 		String comment = "";
 		Lexicon lexicon = Lexicon.getDefaultLexicon();
 		NLGFactory nlgFactory = new NLGFactory(lexicon);
@@ -149,6 +150,6 @@ class StockCommenter {
 				articleSentences[0], articleSentences[1], articleSentences[2]));
 		comment = realiser.realise(par).getRealisation();
 		return comment;
-	}
+	}*/
 
 }
