@@ -17,7 +17,7 @@ import javafx.scene.image.Image;
  *
  * @author dainer
  */
-public class Newsource implements Media {
+class Newsource implements Media {
 
 	private int id;
     private String description;
