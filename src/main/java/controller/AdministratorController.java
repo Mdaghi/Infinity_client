@@ -8,6 +8,8 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import Util.Session;
 import javafx.event.ActionEvent;
@@ -21,11 +23,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import tn.esprit.infinity_server.persistence.User;
+import tn.esprit.infinity_server.services.SymboleService;
 
 /**
  * FXML Controller class
@@ -59,7 +61,7 @@ public class AdministratorController implements Initializable {
     @FXML
     private Label lbUser;
     @FXML
-    private Button BtnLogout;
+    private Button btnLogout;
     @FXML
     private AnchorPane container;
     @FXML
@@ -72,20 +74,12 @@ public class AdministratorController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    	Logger.getLogger(SymboleService.class.getName()).log(Level.WARNING, " init ");
     }    
 
-    @FXML
-    private void menuDashboard(MouseEvent event) {
-    }
-
 
     @FXML
-    private void desactivate(ActionEvent event) {
-    }
-
-    @FXML
-    private void Logout(ActionEvent event) throws IOException {
+    private void logout(ActionEvent event) throws IOException {
     	Session.setUser(new User());
 		Stage stage = new Stage();
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Login.fxml"));
@@ -113,6 +107,16 @@ public class AdministratorController implements Initializable {
     	container.getChildren().clear();
 		container.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/fxml/view/BanUser.fxml")));
     }
-    
+    @FXML
+    private void future(ActionEvent event) throws IOException  {
+    	container.getChildren().clear();
+		container.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/fxml/view/FutureContract.fxml")));
+    }
+    @FXML
+    private void symbols(ActionEvent event) throws IOException {
+
+    	container.getChildren().clear();
+		container.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/fxml/view/Symbole.fxml")));
+    }
     
 }

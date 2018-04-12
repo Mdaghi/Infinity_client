@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -42,18 +48,15 @@
             <RowConstraints />
         </rowConstraints>
          <children>
-            <VBox spacing="20.0" styleClass="box-info-dashboard">
+            <VBox prefHeight="125.0" prefWidth="280.0" spacing="20.0" styleClass="box-info-dashboard">
                <children>
-                  <HBox styleClass="info-visitante">
+                  <Label prefHeight="33.0" prefWidth="260.0" styleClass="titulo-dash-cinza" text="                       Perspective" />
+                  <HBox prefHeight="71.0" prefWidth="280.0" styleClass="info-visitante">
                      <children>
-                        <Label maxWidth="1.7976931348623157E308" styleClass="info-texto" text="News sources supported" HBox.hgrow="ALWAYS" />
-                        <Label fx:id="lbTotalNewsSourceSupported" layoutX="10.0" layoutY="10.0" styleClass="box-contagem-quantidade" text="4" />
-                     </children>
-                  </HBox>
-                  <HBox styleClass="info-catalogacao">
-                     <children>
-                        <Label layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="info-texto" text="Articles fetched this month" HBox.hgrow="ALWAYS" />
-                        <Label fx:id="libTotalArticlesFetched" layoutX="10.0" layoutY="10.0" styleClass="box-contagem-quantidade" text="80" />
+                        <Label prefHeight="55.0" prefWidth="59.0" styleClass="descricao-info" text="Articles" />
+                        <JFXToggleButton fx:id="articlePerspectiveButton" prefHeight="33.0" prefWidth="78.0" text=" " toggleColor="#7597ff" toggleLineColor="#75baff" />
+                        <Label prefHeight="54.0" prefWidth="60.0" styleClass="descricao-info" text="Stocks " />
+                        <JFXToggleButton fx:id="stockPerspectiveButton" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="2.0" prefWidth="91.0" text=" " toggleColor="#7597ff" toggleLineColor="#75baff" />
                      </children>
                   </HBox>
                </children>
@@ -63,23 +66,82 @@
             </VBox>
             <AnchorPane styleClass="box-grafico" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowSpan="6">
                <children>
+                  <AnchorPane fx:id="stockInfo" layoutX="22.0" layoutY="49.0" prefHeight="500.0" prefWidth="1200.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="38.0">
+                     <children>
+                        <LineChart fx:id="stockLineChart" prefHeight="360.0" prefWidth="702.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                        <Label fx:id="coporationNameLabel" layoutX="20.0" layoutY="490.0" prefHeight="15.0" prefWidth="288.0" styleClass="titulo-dash-cinza" />
+                        <Label fx:id="coporationSymbolLabel" layoutX="20.0" layoutY="520.0" prefHeight="15.0" prefWidth="270.0" styleClass="titulo-dash-cinza" />
+                        <Label fx:id="coporationHighLabel" layoutX="1000.0" layoutY="490.0" prefHeight="15.0" prefWidth="220.0" styleClass="titulo-dash-cinza" />
+                        <Label fx:id="coporationLowLabel" layoutX="1000.0" layoutY="520.0" prefHeight="15.0" prefWidth="262.0" styleClass="titulo-dash-cinza" />
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane fx:id="areaContainer" layoutX="22.0" layoutY="43.0" prefHeight="539.0" prefWidth="724.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="32.0">
+                     <content>
+                        <VBox fx:id="area" />
+                     </content>
+                  </ScrollPane>
                   <HBox layoutX="10.0" layoutY="10.0" spacing="5.0" styleClass="box-titulo-dash" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="tituloGrafico" layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="titulo-dash" text="Articles" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS" />
-                        <ToggleButton layoutX="420.0" layoutY="10.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#saveArticle" text="Button">
+                        <Label fx:id="titleMain" layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="titulo-dash" text="Articles" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS" />
+                        <ToggleButton fx:id="generateInfoButton" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#generateStockInfo" text="Button">
+                           <styleClass>
+                              <String fx:value="menu-info" />
+                              <String fx:value="submenus" />
+                           </styleClass>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grupoGrafico61" />
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton fx:id="generateCommentButton" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#generateStockComment" text="Button">
+                           <styleClass>
+                              <String fx:value="menu-comment" />
+                              <String fx:value="submenus" />
+                           </styleClass>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grupoGrafico6" />
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton fx:id="saveArticleButton" layoutX="420.0" layoutY="10.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#saveArticle" text="Button">
                            <styleClass>
                               <String fx:value="menu-add" />
                               <String fx:value="submenus" />
                            </styleClass>
                            <toggleGroup>
                               <ToggleGroup fx:id="grupoGrafico" />
-                           </toggleGroup></ToggleButton>
-                        <ToggleButton layoutX="316.0" layoutY="10.0" mnemonicParsing="false" onAction="#myArticles" text="Button" toggleGroup="$grupoGrafico">
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton fx:id="saveStockButton" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#saveStock" text="Button">
+                           <styleClass>
+                              <String fx:value="menu-add" />
+                              <String fx:value="submenus" />
+                           </styleClass>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grupoGrafico4" />
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton fx:id="myArticlesButton" layoutX="316.0" layoutY="10.0" mnemonicParsing="false" onAction="#myArticles" text="Button" toggleGroup="$grupoGrafico">
                            <styleClass>
                               <String fx:value="menu-visitas" />
                               <String fx:value="submenus" />
-                           </styleClass></ToggleButton>
-                        <ToggleButton minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#refreshArticles" text="Button">
+                           </styleClass>
+                        </ToggleButton>
+                        <ToggleButton fx:id="myStocksButton" mnemonicParsing="false" onAction="#myStocks" text="Button">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grupoGrafico5" />
+                           </toggleGroup>
+                           <styleClass>
+                              <String fx:value="menu-visitas" />
+                              <String fx:value="submenus" />
+                           </styleClass>
+                        </ToggleButton>
+                        <ToggleButton fx:id="refreshArticlesButton" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#refreshArticles" text="Button">
                            <toggleGroup>
                               <ToggleGroup fx:id="grupoGrafico1" />
                            </toggleGroup>
@@ -88,13 +150,42 @@
                               <String fx:value="submenus" />
                            </styleClass>
                         </ToggleButton>
+                        <ToggleButton fx:id="removeStockButton" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#removeStock" text="Button">
+                           <styleClass>
+                              <String fx:value="menu-delete" />
+                              <String fx:value="submenus" />
+                           </styleClass>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grupoGrafico3" />
+                           </toggleGroup>
+                        </ToggleButton>
                      </children>
                   </HBox>
-                  <ScrollPane fx:id="areaContainer" layoutX="22.0" layoutY="43.0" prefHeight="539.0" prefWidth="724.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="32.0">
-                     <content>
-                        <VBox fx:id="area" />
-                     </content>
-                  </ScrollPane>
+                  <TableView fx:id="mystockTable" layoutX="22.0" layoutY="46.0" prefHeight="449.0" prefWidth="724.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="35.0">
+                    <columns>
+                      <TableColumn fx:id="_symbol" prefWidth="126.0" text="          Symbol" />
+                      <TableColumn fx:id="_open" prefWidth="106.0" text="        Open" />
+                        <TableColumn fx:id="_high" minWidth="2.0" prefWidth="86.0" text="      High" />
+                        <TableColumn fx:id="_low" minWidth="9.0" prefWidth="85.0" text="       Low" />
+                        <TableColumn fx:id="_close" minWidth="0.0" prefWidth="98.0" text="       Close" />
+                        <TableColumn fx:id="_volume" prefWidth="124.0" text="           Volume" />
+                        <TableColumn fx:id="_variation" minWidth="0.0" prefWidth="114.0" text="       Change" />
+                        <TableColumn fx:id="_comment" minWidth="0.0" prefWidth="935.0" text="                      Comment" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="stockTable" layoutX="22.0" layoutY="46.0" prefHeight="459.0" prefWidth="734.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="35.0">
+                     <columns>
+                        <TableColumn fx:id="_symbolGeneral" prefWidth="126.0" text="          Symbol" />
+                        <TableColumn fx:id="_openGeneral" prefWidth="106.0" text="        Open" />
+                        <TableColumn fx:id="_highGeneral" minWidth="2.0" prefWidth="86.0" text="      High" />
+                        <TableColumn fx:id="_lowGeneral" minWidth="9.0" prefWidth="85.0" text="       Low" />
+                        <TableColumn fx:id="_closeGeneral" minWidth="0.0" prefWidth="98.0" text="       Close" />
+                        <TableColumn fx:id="_volumeGeneral" prefWidth="124.0" text="           Volume" />
+                        <TableColumn fx:id="_variationGeneral" minWidth="0.0" prefWidth="114.0" text="       Change" />
+                        <TableColumn fx:id="_commentGeneral" minWidth="0.0" prefWidth="935.0" text="                      Comment" />
+                     </columns>
+                  </TableView>
+                  <VBox layoutX="22.0" layoutY="90.0" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="10.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" styleClass="box-dark" GridPane.columnIndex="5" GridPane.rowSpan="6">
@@ -135,12 +226,17 @@
                   <HBox fx:id="terminal" alignment="CENTER_LEFT" layoutX="5.0" layoutY="39.0" prefHeight="41.0" prefWidth="1028.0" spacing="10.0" styleClass="box-titulos-acompanhamento" AnchorPane.bottomAnchor="253.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="38.0" />
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="5.0" styleClass="box-titulo-acompanhamento" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#forexSelect" selected="true" styleClass="menus-acompanhamento" text="Forex" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <ToggleButton fx:id="forexButton" alignment="CENTER_LEFT" mnemonicParsing="false" onAction="#forexSelect" selected="true" styleClass="menus-acompanhamento" text="Forex">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grupoAcompanhamento1" />
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton fx:id="stockButton" layoutX="79.0" layoutY="10.0" mnemonicParsing="false" onAction="#stockSelect" styleClass="menus-acompanhamento" text="Stock" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0">
                            <toggleGroup>
                               <ToggleGroup fx:id="grupoAcompanhamento" />
                            </toggleGroup></ToggleButton>
-                        <ToggleButton layoutX="79.0" layoutY="10.0" mnemonicParsing="false" onAction="#stockSelect" styleClass="menus-acompanhamento" text="Stock" toggleGroup="$grupoAcompanhamento" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0" />
-                        <Label fx:id="tituloGrafico1" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="titulo-acompanhamento" text="Acompanhe" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="tituloGrafico1" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#activateTerminal" prefHeight="30.0" prefWidth="521.0" styleClass="titulo-acompanhamento" text="Acompanhe" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS" />
+                        <ToggleButton fx:id="activateTerminalButton" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#activateTerminal" selected="true" styleClass="menus-acompanhamento" text="Activate" toggleGroup="$grupoAcompanhamento" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                      </children>
                   </HBox>
                   <HBox fx:id="quotesUpdate" alignment="CENTER_LEFT" layoutX="7.0" layoutY="73.0" prefHeight="41.0" prefWidth="1026.0" spacing="10.0" styleClass="box-titulos-acompanhamento" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="72.0" />
@@ -154,7 +250,7 @@
             <AnchorPane layoutX="739.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" GridPane.rowSpan="6">
                <children>
                   <ListView fx:id="articlesTrending" layoutX="5.0" layoutY="66.0" prefHeight="553.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="61.0" />
-                  <HBox layoutX="-120.0" layoutY="14.0" styleClass="box-titulo-dashboard" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox layoutY="14.0" styleClass="box-titulo-dashboard" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
                      <children>
                         <Label layoutX="14.0" layoutY="14.0" maxWidth="1.7976931348623157E308" prefHeight="30.0" styleClass="titulo-dash-cinza" text="Trending World Wide" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS" />
                         <ToggleButton minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#saveArticleTrending" text="Button">

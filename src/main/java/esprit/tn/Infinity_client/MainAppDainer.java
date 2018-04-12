@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tn.esprit.infinity_server.interfaces.NewsArticleRemote;
 import tn.esprit.infinity_server.interfaces.NewsSourceRemote;
 import tn.esprit.infinity_server.persistence.*;
 
@@ -22,8 +23,8 @@ public class MainAppDainer extends Application {
         Scene scene = new Scene(root);
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
-        stage.show();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/dash.fxml"));
+        stage.show();	
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/view/dash.fxml"));
         loader.setRoot(root);
         loader.load();
 
@@ -38,22 +39,8 @@ public class MainAppDainer extends Application {
      * @param args the command line arguments
      * @throws NamingException 
      */
-    public static void main(String[] args) throws NamingException {
-		/*Properties jndiProps = new Properties(); //l
-		jndiProps.put(Context.PROVIDER_URL,"http-remoting://localhost:8080");
-		String jndiName="infinity_server-ear/infinity_server-ejb/ServiceNewsSource!tn.esprit.infinity_server.interfaces.NewsSourceRemote";
-		Context context=new InitialContext(jndiProps);
-		NewsSourceRemote proxy=(NewsSourceRemote)context.lookup(jndiName);
-		NewsSource ns = new NewsSource();
-		ns.setDescription("aze");
-		ns.setUrl("aze");
-		ns.setImage("aze");
-		proxy.addNewsSource(ns);
-		List<NewsSource> s = proxy.getAllNewsSource();
-		System.out.println("result: ");
-		System.out.println(s);*/
+    public static void main(String args[]) throws NamingException {
     	launch(args);
-    	System.out.println("wowe");
     }
 
 }

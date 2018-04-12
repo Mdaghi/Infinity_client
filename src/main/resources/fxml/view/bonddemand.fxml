@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import java.net.URL?>
+
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DemandeController">
+    <children>
+        <HBox prefHeight="60.0" prefWidth="1207.0" styleClass="box-topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="lbTitulo" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="BONDS DEMANDS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+                </Label>
+                <TextField fx:id="txtPesquisar" prefHeight="50.0" prefWidth="417.0" promptText="Pesquisar" styleClass="pesquisar" />
+                <ToggleButton mnemonicParsing="false" text="">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-add" />
+                    </styleClass>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="menu" />
+                    </toggleGroup>
+                </ToggleButton>
+                <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" text="" toggleGroup="$menu">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-editar" />
+                    </styleClass>
+                </ToggleButton>
+                <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" text="" toggleGroup="$menu">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-excluir" />
+                    </styleClass>
+                </ToggleButton>
+            </children>
+        </HBox>
+        <AnchorPane fx:id="telaEdicao" visible="false" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+            <children>
+                <TableView fx:id="tbOrganizacao" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                    <columns>
+                        <TableColumn fx:id="colId" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="Id" />
+                        <TableColumn fx:id="colNome" maxWidth="500.0" minWidth="150.0" prefWidth="200.0" text="Nome" />
+                        <TableColumn fx:id="colSigla" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Sigla" />
+                        <TableColumn fx:id="colEmail" maxWidth="300.0" minWidth="150.0" prefWidth="200.0" text="Email" />
+                        <TableColumn fx:id="colFax" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Fax" />
+                        <TableColumn fx:id="colTelefone" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Telefone" />
+                        <TableColumn fx:id="colLogradouro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Logradouro" />
+                        <TableColumn fx:id="colBairro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Bairro" />
+                        <TableColumn fx:id="colCidade" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Cidade" />
+                        <TableColumn fx:id="colEstado" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Estado" />
+                        <TableColumn fx:id="colPais" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="País" />
+                        <TableColumn fx:id="colDescricao" maxWidth="500.0" minWidth="150.0" prefWidth="300.0" text="Descrição" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="500.0" prefWidth="600.0" styleClass="box-menus-subtela" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+            <children>
+                <StackPane AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+            </children>
+        </AnchorPane>
+      <AnchorPane layoutX="8.0" layoutY="60.0" prefHeight="390.0" prefWidth="806.0">
+         <children>
+            <DatePicker fx:id="SendDate" layoutX="13.0" layoutY="266.0" prefHeight="40.0" prefWidth="103.0" />
+            <DatePicker fx:id="MatureDate" layoutX="130.0" layoutY="266.0" prefHeight="40.0" prefWidth="103.0" />
+            <TextField fx:id="Price" layoutX="254.0" layoutY="266.0" prefHeight="40.0" prefWidth="103.0" />
+            <TextField fx:id="ineteretcoupon" layoutX="375.0" layoutY="266.0" prefHeight="40.0" prefWidth="103.0" />
+            <Label layoutX="30.0" layoutY="226.0" prefHeight="40.0" prefWidth="66.0" text="Send Date" />
+            <Label layoutX="136.0" layoutY="226.0" prefHeight="40.0" prefWidth="81.0" text="Mature Date" />
+            <Label layoutX="288.0" layoutY="226.0" prefHeight="40.0" prefWidth="30.0" text="Price" />
+            <Label layoutX="376.0" layoutY="226.0" prefHeight="40.0" prefWidth="103.0" text="ineteret coupon" />
+            <Button fx:id="add" contentDisplay="TOP" layoutX="496.0" layoutY="266.0" maxHeight="89.0" minWidth="80.0" mnemonicParsing="false" onAction="#addAction" prefHeight="89.0" prefWidth="103.0" style="" text="Add">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+            <TableView fx:id="tableViewDemand" layoutX="15.0" layoutY="14.0" prefHeight="210.0" prefWidth="674.0">
+              <columns>
+                  <TableColumn fx:id="columndate0" prefWidth="113.0" text="Requet Date" />
+                <TableColumn fx:id="columndate1" prefWidth="119.0" text="Send Date" />
+                <TableColumn fx:id="columndate2" prefWidth="120.0" text="Mature Date" />
+                  <TableColumn fx:id="columnprice" prefWidth="115.0" text="Price" />
+                  <TableColumn fx:id="columncoupon" prefWidth="120.0" text="ineteret coupon" />
+                  <TableColumn fx:id="columnstatus" prefWidth="86.0" text="statusdem" />
+              </columns>
+            </TableView>
+            <Button fx:id="delete" contentDisplay="TOP" layoutX="496.0" layoutY="229.0" maxHeight="89.0" minWidth="80.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="89.0" prefWidth="103.0" style="" text="delete">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+            <Label fx:id="lblid1" layoutX="24.0" layoutY="219.0" />
+            <Button fx:id="btnupdate" contentDisplay="TOP" layoutX="497.0" layoutY="303.0" maxHeight="89.0" minWidth="80.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="89.0" prefWidth="103.0" style="" text="update">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+            <TextField fx:id="count" layoutX="226.0" layoutY="318.0" prefHeight="40.0" prefWidth="103.0" />
+         </children>
+      </AnchorPane>
+    </children>
+    <stylesheets>
+        <URL value="@../css/default.css" />
+        <URL value="@../css/custom.css" />
+    </stylesheets>
+</fx:root>

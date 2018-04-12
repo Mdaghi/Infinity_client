@@ -21,7 +21,7 @@
                     <children>
                         <HBox alignment="BASELINE_LEFT" prefHeight="70.0" spacing="5.0" styleClass="box-logo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <ImageView fitHeight="47.0" fitWidth="225.0" layoutX="11.0" layoutY="9.0" onMouseClicked="#menuDashboard" pickOnBounds="true" preserveRatio="true" styleClass="logo" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                <ImageView fitHeight="47.0" fitWidth="225.0" layoutX="11.0" layoutY="9.0"  pickOnBounds="true" preserveRatio="true" styleClass="logo" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                             </children>
                         </HBox>
                         <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="60.0" pannable="true" prefViewportHeight="710.0" prefViewportWidth="220.0" styleClass="scroll" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
@@ -100,13 +100,37 @@
                                                 </ToggleButton>
                                                 <VBox fx:id="boxUtilitarios" layoutX="10.0" layoutY="335.0" styleClass="box-submenus">
                                                     <children>
-                                          <ToggleButton fx:id="btnDesactivate" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#desactivate" styleClass="submenus" text="Desactivate">
+                                          <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Desactivate">
                                              <toggleGroup>
                                                 <ToggleGroup fx:id="grupoUtilidades1" />
                                              </toggleGroup>
                                           </ToggleButton>
                                                     </children>
                                                 </VBox>
+                                    <ToggleButton fx:id="future" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Futures">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="grupoMenus1" />
+                                       </toggleGroup>
+                                       <styleClass>
+                                          <String fx:value="menus" />
+                                          <String fx:value="menu-emprestimo" />
+                                          <String fx:value="menu-grupo" />
+                                       </styleClass>
+                                    </ToggleButton>
+                                    <VBox fx:id="boxCatalogacao1" styleClass="box-submenus">
+                                       <children>
+                                          <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#future" styleClass="submenus" text="Futures management">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoCatalogacao1" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#symbols" styleClass="submenus" text="Symbols management">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoCatalogacao11" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                       </children>
+                                    </VBox>
                                             </children>
                                         </VBox>
                                     </children>
@@ -116,7 +140,7 @@
                         <AnchorPane maxHeight="30.0" minHeight="30.0" prefHeight="30.0" styleClass="box-user" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                             <children>
                                 <Label fx:id="lbUser" maxWidth="150.0" prefWidth="150.0" styleClass="lb-user" text="Username" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0" />
-                                <Button fx:id="BtnLogout" layoutX="160.5" layoutY="4.0" mnemonicParsing="false" onAction="#Logout" styleClass="menu-sair" text="Logout" />
+                                <Button fx:id="btnLogout" layoutX="160.5" layoutY="4.0" mnemonicParsing="false" onAction="#logout" styleClass="menu-sair" text="Logout" />
                             </children>
                         </AnchorPane>
                     </children>

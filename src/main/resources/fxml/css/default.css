@@ -602,7 +602,7 @@
     -fx-cell-size: 2em;
     -fx-padding: 0.5em 0.6em;
     -fx-pref-height: 30px;
-    -fx-text-fill: #6a6a6a;
+    -fx-text-fill: #6a6a6ae
 }
 
 .table-row-cell:even {

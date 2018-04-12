@@ -17,7 +17,7 @@ import javafx.scene.image.Image;
  *
  * @author dainer
  */
-public class Article implements Media {
+class Article implements Media {
 
     private String content;
 

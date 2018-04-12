@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WatchListBondOfferController">
+   <children>
+      <BorderPane layoutX="-25.0" layoutY="99.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="ancFeedbacks" layoutX="30.0" layoutY="510.0" prefHeight="200.0" prefWidth="550.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadfe4" height="200.0" stroke="#332f5b" strokeType="INSIDE" strokeWidth="2.0" width="762.0" />
+                        <ListView fx:id="lvComments" layoutX="4.0" layoutY="7.0" prefHeight="132.0" prefWidth="752.0" />
+                     </children>
+                  </AnchorPane>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadfe4" height="407.0" layoutX="387.0" layoutY="71.0" stroke="#332f5b" strokeType="INSIDE" strokeWidth="3.0" width="332.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadfe4" height="407.0" layoutX="29.0" layoutY="71.0" stroke="#332f5b" strokeType="INSIDE" strokeWidth="3.0" width="332.0" />
+                  <ListView fx:id="lvWatchLists" layoutX="400.0" layoutY="80.0" prefHeight="200.0" prefWidth="596.0" />
+                  <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="30.0" styleClass="box-footer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Label layoutX="30.0" layoutY="2.0" styleClass="box-mensagens" text="IDECA 2.0 -Bonds" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="0.0" />
+                        <Hyperlink alignment="CENTER_RIGHT" layoutY="2.0" prefHeight="28.0" prefWidth="120.0" styleClass="link" text="Intellixx" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <GridPane layoutX="50.0" layoutY="80.0" prefHeight="406.0" prefWidth="900.0">
+                     <children>
+                        <GridPane fx:id="telaCadastro1" hgap="10.0" prefHeight="442.0" prefWidth="250.0">
+                           <children>
+                              <Label text="issuedate" />
+                              <Label text="maturitydate" GridPane.rowIndex="1" />
+                              <Label text="printdate" GridPane.rowIndex="2" />
+                              <Label text="printplace" GridPane.rowIndex="3" />
+                              <Label text="securitynumber" GridPane.rowIndex="4" />
+                              <Label text="series" GridPane.rowIndex="5" />
+                              <Label fx:id="lbIssueDate" GridPane.columnIndex="1" />
+                              <Label fx:id="lbMaturityDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lbPrintDate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="lbPrintPlace" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="lbSecurityNumber" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="lbSeries" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints prefWidth="200.0" />
+                              <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                           </rowConstraints>
+                        </GridPane>
+                        <GridPane fx:id="telaCadastro" hgap="10.0" prefHeight="442.0" prefWidth="400.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label text="address" />
+                              <Label text="couponrate" GridPane.rowIndex="1" />
+                              <Label text="denomination" GridPane.rowIndex="2" />
+                              <Label text="frequency rate" GridPane.rowIndex="3" />
+                              <Label text="interestrate" GridPane.rowIndex="4" />
+                              <Label text="owner" GridPane.rowIndex="5" />
+                              <Label fx:id="lbAdress" GridPane.columnIndex="1" />
+                              <Label fx:id="lbCoupoonRate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lbDenomination" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="lbFrequencyRate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="lbInterestRate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="lbOwner" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints prefWidth="200.0" />
+                              <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                              <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.0" minWidth="10.0" prefWidth="220.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="553.0" minWidth="10.0" prefWidth="220.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="406.0" minHeight="10.0" prefHeight="401.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <HBox prefHeight="60.0" prefWidth="974.0" styleClass="box-topo">
+                     <children>
+                        <Label fx:id="lbTitle" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Bond Offer:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS" />
+                        <JFXButton fx:id="like" onAction="#like" text="Like">
+                           <styleClass>
+                              <String fx:value="menu-green" />
+                              <String fx:value="menus-acoes" />
+                           </styleClass>
+                        </JFXButton>
+                        <JFXButton fx:id="dislike" onAction="#Dislike" text="Dislike">
+                           <styleClass>
+                              <String fx:value="menu-red" />
+                              <String fx:value="menu-relatorios" />
+                              <String fx:value="menus-acoes" />
+                           </styleClass>
+                        </JFXButton>
+                        <JFXButton fx:id="StatisticsButton" onAction="#statistics" text="Statistics">
+                           <styleClass>
+                              <String fx:value="menu-relatorios" />
+                              <String fx:value="menu-laranja" />
+                              <String fx:value="menus-acoes" />
+                           </styleClass>
+                        </JFXButton>
+                        <JFXButton fx:id="follow2" onAction="#follow" text="Follow">
+                           <styleClass>
+                              <String fx:value="menu-blue" />
+                              <String fx:value="menu-visitantes" />
+                              <String fx:value="menus-acoes" />
+                           </styleClass></JFXButton>
+                     </children>
+                  </HBox>
+                  <Label fx:id="likesLab" layoutX="956.0" layoutY="371.0" text="Total Likes:" />
+                  <Label fx:id="dislikesLab" layoutX="950.0" layoutY="337.0" text="Total dislikes:" />
+                  <Hyperlink fx:id="hlFeedbacks" layoutX="327.0" layoutY="486.0" onAction="#feedBacks" text="Show feedbacks" />
+               </children>
+            </AnchorPane>
+         </center>
+         <left>
+            <AnchorPane styleClass="box" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="BASELINE_LEFT" prefHeight="70.0" spacing="5.0" styleClass="box-logo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="47.0" fitWidth="225.0" layoutX="11.0" layoutY="9.0" onMouseClicked="#menuDashboard" pickOnBounds="true" preserveRatio="true" styleClass="logo" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                     </children>
+                  </HBox>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="60.0" pannable="true" prefViewportHeight="710.0" prefViewportWidth="220.0" styleClass="scroll" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                     <content>
+                        <VBox fx:id="sideBarVbox" spacing="5.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                           <children>
+                              <VBox layoutY="35.0" styleClass="box-menus" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
+                                 <children>
+                                    <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="20.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" selected="true" text="Bonds">
+                                       <styleClass>
+                                          <String fx:value="menus" />
+                                          <String fx:value="menu-emprestimo" />
+                                          <String fx:value="menu-grupo" />
+                                       </styleClass>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="grupoMenus" />
+                                       </toggleGroup>
+                                    </ToggleButton>
+                                    <VBox fx:id="boxCatalogacao" layoutX="10.0" layoutY="55.0" styleClass="box-submenus">
+                                       <children>
+                                          <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="My Offers">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoCatalogacao" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="My Demands" toggleGroup="$grupoCatalogacao" />
+                                          <ToggleButton alignment="CENTER_LEFT" layoutX="40.0" layoutY="40.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Current Bonds" toggleGroup="$grupoCatalogacao" />
+                                          <ToggleButton alignment="CENTER_LEFT" layoutX="40.0" layoutY="70.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Trade Bonds" toggleGroup="$grupoCatalogacao" />
+                                       </children>
+                                    </VBox>
+                                    <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Traders" toggleGroup="$grupoMenus">
+                                       <styleClass>
+                                          <String fx:value="menus" />
+                                          <String fx:value="menu-visitantes" />
+                                          <String fx:value="menu-grupo" />
+                                       </styleClass>
+                                    </ToggleButton>
+                                    <VBox fx:id="boxVisitas" styleClass="box-submenus">
+                                       <children>
+                                          <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="My Traders">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoVisitantes" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Current Traders" toggleGroup="$grupoVisitantes" />
+                                       </children>
+                                    </VBox>
+                                    <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="145.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="News" toggleGroup="$grupoMenus">
+                                       <styleClass>
+                                          <String fx:value="menus" />
+                                          <String fx:value="menu-identificacao" />
+                                          <String fx:value="menu-grupo" />
+                                       </styleClass>
+                                    </ToggleButton>
+                                    <VBox fx:id="boxEmprestimo" layoutX="10.0" layoutY="180.0" styleClass="box-submenus">
+                                       <children>
+                                          <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Watchlist">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoVisitantes1" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="My Articles">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoVisitantes11" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Subcribes">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoVisitantes111" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                       </children>
+                                    </VBox>
+                                    <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="300.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Portfolio" toggleGroup="$grupoMenus">
+                                       <styleClass>
+                                          <String fx:value="menus" />
+                                          <String fx:value="menu-relatorios" />
+                                       </styleClass>
+                                    </ToggleButton>
+                                    <VBox fx:id="boxLocalizacao" layoutX="10.0" layoutY="700.0" styleClass="box-submenus" />
+                                    <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="560.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Profile" toggleGroup="$grupoMenus">
+                                       <styleClass>
+                                          <String fx:value="menus" />
+                                          <String fx:value="menu-utilidade" />
+                                          <String fx:value="menu-grupo" />
+                                       </styleClass>
+                                    </ToggleButton>
+                                    <VBox fx:id="boxUtilitarios" layoutX="10.0" layoutY="335.0" styleClass="box-submenus">
+                                       <children>
+                                          <ToggleButton fx:id="btnEditProfile" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#editProfile" styleClass="submenus" text="Edit Profile">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoUtilidades2" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="BtnChangePassword" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changePassword" styleClass="submenus" text="Change Password">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoUtilidades" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="btnDesactivate" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#desactivate" styleClass="submenus" text="Desactivate">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoUtilidades1" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <AnchorPane maxHeight="30.0" minHeight="30.0" prefHeight="30.0" styleClass="box-user" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Label fx:id="lbUser" maxWidth="150.0" prefWidth="150.0" styleClass="lb-user" text="Username" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0" />
+                        <Button fx:id="BtnLogout" layoutX="160.5" layoutY="4.0" mnemonicParsing="false" onAction="#Logout" styleClass="menu-sair" text="Logout" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+      <VBox fx:id="boxNotas" alignment="TOP_RIGHT" fillWidth="false" layoutX="1044.0" layoutY="596.0" spacing="10.0" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="15.0" />
+   </children>
+    <stylesheets>
+      <URL value="@../css/default.css" />
+      <URL value="@../css/custom.css" />
+   </stylesheets>
+</AnchorPane>

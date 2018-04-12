@@ -1164,3 +1164,13 @@
     -fx-padding: 0;
 }
 
+.menu-orange {
+    -fx-background-color: linear-gradient(to top right, #eea236, #eea236);
+    -fx-border-color: linear-gradient(to top right, #eea236, #eea236);
+}
+
+.menu-orange:pressed {
+    -fx-background-color: #eea236;
+    -fx-border-color: #eea236;
+}
+

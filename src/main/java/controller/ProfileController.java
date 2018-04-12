@@ -7,6 +7,8 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,11 +31,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 import tn.esprit.infinity_server.interfaces.AddressRemote;
-import tn.esprit.infinity_server.interfaces.TradorRemote;
 import tn.esprit.infinity_server.interfaces.UserRemote;
 import tn.esprit.infinity_server.persistence.Address;
 import tn.esprit.infinity_server.persistence.Client;
 import tn.esprit.infinity_server.persistence.User;
+import tn.esprit.infinity_server.services.SymboleService;
 
 /**
  * FXML Controller class
@@ -106,7 +108,7 @@ public class ProfileController implements Initializable {
 		try {
 			initUser();
 		} catch (NamingException e) {
-			System.out.println(e);
+			Logger.getLogger(SymboleService.class.getName()).log(Level.WARNING, " init user :" + e);
 		}
 		////
 
@@ -114,36 +116,40 @@ public class ProfileController implements Initializable {
 
 	@FXML
 	private void valide(ActionEvent event) {
-		if(valideRegExEmptyRegistration())
-		{
-		//
-		Address address = new Address();
-		address.setCity(txtCity.getText());
-		address.setCountry(txtCountry.getText());
-		address.setNumber(Integer.valueOf(txtNumber.getText()));
-		address.setPostalCode(txtPostalCode.getText());
-		address.setStreet(txtStreet.getText());
-		address.setId(Session.getUser().getAddress().getId());
-		//
-		Client client = (Client) Session.getUser();
-		client.setFirstname(txtFirstname.getText());
-		client.setLastname(txtLastname.getText());
-		client.setPhoneNumber(txtPhoneNumber.getText());
-		client.setAddress(address);
-		System.out.println(address);
-		
-		//addressProxy.UpdateAddressByid(address);
-		client.setAddress(address);
-		addressProxy.UpdateAddress(address);
-		userProxy.updateUser(client);
-		
-		Notifications notificationBuilder = Notifications.create().title("")
-				.text("Update with Success ").darkStyle().graphic(null)
-				.hideAfter(Duration.seconds(15)).position(Pos.BOTTOM_RIGHT);
-		notificationBuilder.showConfirm();
-	
+		if (valideRegExEmptyRegistration()) {
+			//
+			Address address = null;
+			if (Session.getUser().getAddress()!= null) {
+				address = addressProxy.findAddressById(Session.getUser().getAddress().getId());
+				address.setCity(txtCity.getText());
+				address.setCountry(txtCountry.getText());
+				address.setNumber(Integer.valueOf(txtNumber.getText()));
+				address.setPostalCode(txtPostalCode.getText());
+				address.setStreet(txtStreet.getText());
+			} else {
+				address = new Address();
+				address.setCity(txtCity.getText());
+				address.setCountry(txtCountry.getText());
+				address.setNumber(Integer.valueOf(txtNumber.getText()));
+				address.setPostalCode(txtPostalCode.getText());
+				address.setStreet(txtStreet.getText());
+			}
+			//
+			Client client = (Client) Session.getUser();
+			client.setFirstname(txtFirstname.getText());
+			client.setLastname(txtLastname.getText());
+			client.setPhoneNumber(txtPhoneNumber.getText());
+			client.setAddress(address);
+			if (Session.getUser().getAddress() != null)
+				addressProxy.UpdateAddress(address);
+			userProxy.updateUser(client);
+
+			Notifications notificationBuilder = Notifications.create().title("").text("Update with Success ")
+					.darkStyle().graphic(null).hideAfter(Duration.seconds(15)).position(Pos.BOTTOM_RIGHT);
+			notificationBuilder.showConfirm();
+
 		}
-		
+
 	}
 
 	public void initServiceJNDI() throws NamingException {
@@ -206,13 +212,13 @@ public class ProfileController implements Initializable {
 				txtCountry.setText("");
 		}
 	}
+
 	// RegEx validation and lenght
 	public boolean valideRegExEmptyRegistration() {
-		
+
 		if (txtPhoneNumber.getText().isEmpty()) {
-			Notifications notificationBuilder = Notifications.create().title("")
-					.text("Phone Number field is empty  ").darkStyle().graphic(null).hideAfter(Duration.seconds(5))
-					.position(Pos.BOTTOM_RIGHT);
+			Notifications notificationBuilder = Notifications.create().title("").text("Phone Number field is empty  ")
+					.darkStyle().graphic(null).hideAfter(Duration.seconds(5)).position(Pos.BOTTOM_RIGHT);
 			notificationBuilder.showError();
 			return false;
 		}
@@ -224,14 +230,13 @@ public class ProfileController implements Initializable {
 			return false;
 		}
 		if (txtLastname.getText().isEmpty()) {
-			Notifications notificationBuilder = Notifications.create().title("")
-					.text("Lastname field is empty  ").darkStyle().graphic(null).hideAfter(Duration.seconds(5))
-					.position(Pos.BOTTOM_RIGHT);
+			Notifications notificationBuilder = Notifications.create().title("").text("Lastname field is empty  ")
+					.darkStyle().graphic(null).hideAfter(Duration.seconds(5)).position(Pos.BOTTOM_RIGHT);
 
 			notificationBuilder.showError();
 			return false;
 		}
-		
+
 		if (txtCity.getText().isEmpty()) {
 			Notifications notificationBuilder = Notifications.create().title("").text("City field is empty  ")
 					.darkStyle().graphic(null).hideAfter(Duration.seconds(5)).position(Pos.BOTTOM_RIGHT);
@@ -247,30 +252,27 @@ public class ProfileController implements Initializable {
 			return false;
 		}
 		if (txtNumber.getText().isEmpty()) {
-			Notifications notificationBuilder = Notifications.create().title("")
-					.text("Number field is empty  ").darkStyle().graphic(null).hideAfter(Duration.seconds(5))
-					.position(Pos.BOTTOM_RIGHT);
+			Notifications notificationBuilder = Notifications.create().title("").text("Number field is empty  ")
+					.darkStyle().graphic(null).hideAfter(Duration.seconds(5)).position(Pos.BOTTOM_RIGHT);
 
 			notificationBuilder.showError();
 			return false;
 		}
 		if (txtPostalCode.getText().isEmpty()) {
-			Notifications notificationBuilder = Notifications.create().title("")
-					.text("Postal code field is empty  ").darkStyle().graphic(null).hideAfter(Duration.seconds(5))
-					.position(Pos.BOTTOM_RIGHT);
+			Notifications notificationBuilder = Notifications.create().title("").text("Postal code field is empty  ")
+					.darkStyle().graphic(null).hideAfter(Duration.seconds(5)).position(Pos.BOTTOM_RIGHT);
 
 			notificationBuilder.showError();
 			return false;
 		}
 		if (txtStreet.getText().isEmpty()) {
-			Notifications notificationBuilder = Notifications.create().title("")
-					.text("Street field is empty  ").darkStyle().graphic(null).hideAfter(Duration.seconds(5))
-					.position(Pos.BOTTOM_RIGHT);
+			Notifications notificationBuilder = Notifications.create().title("").text("Street field is empty  ")
+					.darkStyle().graphic(null).hideAfter(Duration.seconds(5)).position(Pos.BOTTOM_RIGHT);
 
 			notificationBuilder.showError();
 			return false;
 		}
-		
+
 		String regName = "^[a-zA-Z]+$";
 		Pattern patternName = Pattern.compile(regName, Pattern.CASE_INSENSITIVE);
 		String regNumber = "^[0-9]+$";
@@ -293,7 +295,7 @@ public class ProfileController implements Initializable {
 			notificationBuilder.showError();
 			return false;
 		}
-		// City 
+		// City
 		regexName = patternName.matcher(txtCity.getText());
 		if (!regexName.matches()) {
 			Notifications notificationBuilder = Notifications.create().title("").text("Invalid City  Format")
@@ -311,7 +313,7 @@ public class ProfileController implements Initializable {
 			notificationBuilder.showError();
 			return false;
 		}
-		// Phone Number 
+		// Phone Number
 		Matcher regexNumber = patternNumber.matcher(txtPhoneNumber.getText());
 		if (!regexNumber.matches()) {
 			Notifications notificationBuilder = Notifications.create().title("").text("Invalid Lastname Format")
@@ -347,7 +349,7 @@ public class ProfileController implements Initializable {
 			notificationBuilder.showError();
 			return false;
 		}
-		
+
 		if (txtFirstname.getText().length() > 50) {
 			Notifications notificationBuilder = Notifications.create().title("")
 					.text("Firstname must be less than 50 character").darkStyle().graphic(null)
@@ -382,9 +384,5 @@ public class ProfileController implements Initializable {
 		}
 		return true;
 	}
-
-
-
-
 
 }
