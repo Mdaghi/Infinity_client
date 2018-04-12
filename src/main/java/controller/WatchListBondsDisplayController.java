@@ -5,19 +5,19 @@ import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.criteria.Predicate;
-
-import com.sun.corba.se.spi.ior.Identifiable;
 
 import Util.WatchListTechnical;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,126 +26,148 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import tn.esprit.infinity_server.interfaces.WatchListRemote;
+import tn.esprit.infinity_server.interfaces.WatchListsBondsRemote;
 import tn.esprit.infinity_server.persistence.WatchList;
-import javafx.event.ActionEvent;
-import javafx.event.*;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import tn.esprit.infinity_server.persistence.WatchListBonds;
+
+public class WatchListBondsDisplayController implements Initializable {
+
+	  @FXML
+	    private ListView<WatchListBonds> lvWatchListBonds;
+
+	  @FXML
+	    private AnchorPane container;
+
+	    @FXML
+	    private ToggleGroup grupoCatalogacao;
+
+	    @FXML
+	    private HBox hbCreateWatchList;
+
+	    @FXML
+	    private ToggleGroup grupoVisitantes11;
+
+	    @FXML
+	    private VBox boxVisitas;
+
+	    @FXML
+	    private ToggleButton btnEditProfile;
+
+	    @FXML
+	    private VBox boxLocalizacao;
+
+	    @FXML
+	    private VBox boxUtilitarios;
+
+	    @FXML
+	    private ToggleButton btnDesactivate;
+
+	    @FXML
+	    private ToggleGroup grupoVisitantes1;
+
+	    @FXML
+	    private VBox boxEmprestimo;
+
+	    @FXML
+	    private ToggleGroup grupoVisitantes111;
+
+	    @FXML
+	    private ToggleGroup grupoUtilidades1;
+
+	    @FXML
+	    private ToggleGroup grupoUtilidades2;
+
+	    @FXML
+	    private Label lbEmpty;
+
+	    @FXML
+	    private ToggleGroup menu;
+
+	    @FXML
+	    private ToggleGroup grupoVisitantes;
+
+	    @FXML
+	    private Label lbTitle;
+
+	    @FXML
+	    private ToggleButton BtnChangePassword;
+
+	    @FXML
+	    private Button BtnLogout;
+
+	    @FXML
+	    private VBox boxNotas;
+
+	    @FXML
+	    private ToggleGroup grupoMenus;
 
 
+	    @FXML
+	    private TextField txtSearch;
 
-public class WatchListDisplayController implements Initializable {
-	/***************************/
-	@FXML
-	private TextField txtSearch;
+	    @FXML
+	    private Label lbUser;
 
-	@FXML
-	private Button btAddWatchList;
+	    @FXML
+	    private ToggleGroup grupoUtilidades;
 
-	@FXML
-	private Label lbTitulo;
+	    @FXML
+	    private VBox boxCatalogacao;
+	    /************************************/
+	    private ListView<WatchList> lvWatchList;
+		Image imgPart = new Image("/fxml/img/information.png", 60, 60, true, true);
+		Image imgDelete = new Image("/fxml/img/delete.png", 60, 60, true, true);
 
-	@FXML
-	private ToggleGroup menu;
-
-	@FXML
-	private HBox hbCreateWatchList;
-
-	@FXML
-	private ListView<WatchList> lvWatchList;
-	Image imgPart = new Image("/fxml/img/information.png", 60, 60, true, true);
-	Image imgDelete = new Image("/fxml/img/delete.png", 60, 60, true, true);
-
-	ListCell cell;    
-	ObservableList<WatchList> watchLists = FXCollections.observableArrayList();
-
-
-    @FXML
-    void add(ActionEvent event) throws IOException {
-    	Parent parent = FXMLLoader.load(getClass().getResource("/fxml/view/WatchList.fxml"));       
-        Scene scene = new Scene(parent);
-
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(scene);
-        app_stage.setTitle("My WatchLists");
-        app_stage.show();
-    }
-
-	@FXML
-	void telaCadastro(ActionEvent event) {
-
-	}
-
-	@FXML
-	void telaEdicao(ActionEvent event) {
-
-	}
-
-	@FXML
-	void telaExcluir(ActionEvent event) {
-
-	}
+		ListCell cell;    
+		ObservableList<WatchListBonds> watchLists = FXCollections.observableArrayList();
+		
+		  
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources)  {
-		String jndiName="infinity_server-ear/infinity_server-ejb/WatchListService!tn.esprit.infinity_server.interfaces.WatchListRemote";
+	public void initialize(URL location, ResourceBundle resources) {
+		String jndiName="infinity_server-ear/infinity_server-ejb/WatchListsBondsService!tn.esprit.infinity_server.interfaces.WatchListsBondsRemote";
 		Context context;
 		try {
 			context = new InitialContext();
-			WatchListRemote proxy=(WatchListRemote)context.lookup(jndiName);
-			proxy.readAllWatchlistsUser(1);			
-
+			WatchListsBondsRemote proxy=(WatchListsBondsRemote)context.lookup(jndiName);
+			
 			/**************************List View**************************************/    
-			List<WatchList> watchlistL =  proxy.readAllWatchlistsUser(1);
-			watchLists=FXCollections.observableArrayList(watchlistL);
+			List<WatchListBonds> watchlistBondsL =  proxy.readAllWatchlistsBondsUser(1);
+			watchLists=FXCollections.observableArrayList(watchlistBondsL);
 
 
-			if(watchLists.size()!=0)
+			if(!watchLists.isEmpty())
 			{
 				hbCreateWatchList.setVisible(false);
-				lvWatchList.setFocusModel(null);
-				lvWatchList.setItems(watchLists);
+				lvWatchListBonds.setFocusModel(null);
+				lvWatchListBonds.setItems(watchLists);
 				/***********************************************/
-				FilteredList<WatchList> filteredWatchLists = new FilteredList<>(watchLists, e -> true);
-				txtSearch.setOnKeyReleased(e -> {
-					txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-						filteredWatchLists.setPredicate((java.util.function.Predicate<? super WatchList>) WatchList -> {
-							if (newValue == null || newValue.isEmpty()) {
-								return true;
-							}
-							String lowerCaseFilter = newValue.toLowerCase();
-							
-							if (WatchList.getName().toLowerCase().contains(CharSequence.class.cast(lowerCaseFilter))) {
-								return true;
-							}
-							return false;
-
-						});
-					});
-					SortedList<WatchList> sortedData = new SortedList<>(filteredWatchLists);
-					lvWatchList.setItems(sortedData);
-
-				});
+				FilteredList<WatchListBonds> filteredWatchLists = new FilteredList<>(watchLists, e -> true);
+				
 				
 				
 				
 				/**************************************************/
-				lvWatchList.setCellFactory(new Callback<ListView<WatchList>, ListCell<WatchList>>() {
+				lvWatchListBonds.setCellFactory(new Callback<ListView<WatchListBonds>, ListCell<WatchListBonds>>() {
 					@Override
-					public ListCell<WatchList> call(ListView<WatchList> param) {
-						ListCell<WatchList> cell=new ListCell<WatchList>(){
+					public ListCell<WatchListBonds> call(ListView<WatchListBonds> param) {
+						ListCell<WatchListBonds> cell=new ListCell<WatchListBonds>(){
 							@Override
-							protected void updateItem(WatchList w, boolean bln) {
+							protected void updateItem(WatchListBonds w, boolean bln) {
 								super.updateItem(w, bln);
 								if(w!=null)
 								{
@@ -193,20 +215,18 @@ public class WatchListDisplayController implements Initializable {
 									HBox hBoxContainer = new HBox(4);
 									hBoxContainer.setPrefHeight(240);
 									hBoxContainer.setPrefWidth(300);
-									hBoxContainer.setStyle("-fx-padding: 10;" 
-											+ "-fx-border-width: 2;" + "-fx-border-insets: 5;"
-											+ "-fx-border-radius: 5;");
+									hBoxContainer.setStyle("-fx-padding: 10;"+ "-fx-border-width: 2;" + "-fx-border-insets: 5;"+ "-fx-border-radius: 5;");
 
-									Label name = new Label(w.getName());
+									Label name = new Label(w.getBond().getAddress());
 									name.setStyle("-fx-font-weight: bold;-fx-font-size : 24 ;");
 
-									Label description = new Label(w.getDescription());
+									Label description = new Label(w.getBond().getOwner());
 									description.setStyle("-fx-font-weight: bold;");
 
-									Label creationDate = new Label(w.getCreationDate().toString());
+									Label creationDate = new Label(w.getBond().getOwner());
 									creationDate.setStyle("-fx-font-weight: bold;");
 
-									Label id = new Label(String.valueOf(w.getId()));
+									Label id = new Label(String.valueOf(w.getBond().getOwner()));
 									creationDate.setStyle("-fx-font-weight: bold;");
 
 									final ImageView imageDisplay = new ImageView(imgPart);
@@ -219,7 +239,6 @@ public class WatchListDisplayController implements Initializable {
 
 											 FXMLLoader loader=new FXMLLoader();
 												try {
-													 WatchListTechnical.setWatchList(w);
 												        
 												        Parent parent = loader.load(getClass().getResource("/fxml/view/watchListDetails.fxml"));       
 												        Scene scene = new Scene(parent);
@@ -244,37 +263,11 @@ public class WatchListDisplayController implements Initializable {
 
 
 									imageRemove.setOnMousePressed(e->{
-										String jndiName="infinity_server-ear/infinity_server-ejb/WatchListService!tn.esprit.infinity_server.interfaces.WatchListRemote";
-										Context context;
-
-										Date date = new Date();
-										try {
-											context = new InitialContext();
-											WatchListRemote proxy=(WatchListRemote)context.lookup(jndiName);
-											try{
-
-												proxy.deleteWatchList(w.getId());
-												List<WatchList> watchlistL =  proxy.readAllWatchlistsUser(1);
-												watchLists=FXCollections.observableArrayList(watchlistL);
-												lvWatchList.setItems(watchLists);
-												if(lvWatchList.getItems().size()==0)
-												{
-													hbCreateWatchList.setVisible(true);
-												}
-											}catch(NumberFormatException ex){ // handle your exception
-												ex.printStackTrace();
-											}
-
-										} catch (Exception e1) {
-											// TODO Auto-generated catch block
-											e1.printStackTrace();
-										}
+										
 
 									});
-
 									vBoxThree.getChildren().add(imageDisplay);
 									vBoxFour.getChildren().add(imageRemove);
-
 									hBoxSecond.getChildren().add(description);
 									hBoxThird.getChildren().add(creationDate);
 									hBoxFourth.getChildren().add(id);
@@ -297,7 +290,7 @@ public class WatchListDisplayController implements Initializable {
 			else
 			{
 				hbCreateWatchList.setVisible(true);
-				lvWatchList.setVisible(false);
+				lvWatchListBonds.setVisible(false);
 			}
 
 
@@ -305,7 +298,46 @@ public class WatchListDisplayController implements Initializable {
 			e.printStackTrace();
 		}	
 
+		
 	}
-    
+	
+	  @FXML
+	    void telaCadastro(ActionEvent event) {
 
+	    }
+
+	    @FXML
+	    void telaEdicao(ActionEvent event) {
+
+	    }
+
+	    @FXML
+	    void telaExcluir(ActionEvent event) {
+
+	    }
+
+	    @FXML
+	    void menuDashboard(ActionEvent event) {
+
+	    }
+
+	    @FXML
+	    void editProfile(ActionEvent event) {
+
+	    }
+
+	    @FXML
+	    void changePassword(ActionEvent event) {
+
+	    }
+
+	    @FXML
+	    void desactivate(ActionEvent event) {
+
+	    }
+
+	    @FXML
+	    void Logout(ActionEvent event) {
+
+	    }
 }

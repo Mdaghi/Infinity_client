@@ -79,7 +79,7 @@ public class WatchListDetailsController implements Initializable{
 					WatchListRemote proxy2=(WatchListRemote)context.lookup(jndiName);	
 					WatchList watchList=new WatchList();
 					watchList.setId(Integer.parseInt(lbId.getText()));
-					watchList.setName(txtDescription.getText());
+					watchList.setName(txtName.getText());
 					watchList.setDescription(txtDescription.getText());
 					proxy2.updateWatchList(watchList);
 				} catch (NamingException e) {
