@@ -79,6 +79,9 @@ public class ClientController implements Initializable {
     private ToggleButton btnCalculator;
     @FXML
     private ToggleButton btnManageFuture;
+    @FXML
+    private ToggleButton   PutButton
+  ;
     /**
      * Initializes the controller class.
      */
@@ -176,5 +179,13 @@ public class ClientController implements Initializable {
     {
     	FutureController.stopListener();
     	CalculateFutureController.stopListener();
+    }
+    @FXML
+    private void MoveToPutOptions(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/view/OptionPut.fxml"));
+        Parent root = loader.load();
+
+        container.getScene().setRoot(root);
     }
 }
