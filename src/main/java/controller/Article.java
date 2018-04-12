@@ -17,15 +17,19 @@ import javafx.scene.image.Image;
  *
  * @author dainer
  */
-public class Article implements Media {
+class Article implements Media {
 
     private String content;
+
+    private String title;
 
     private String coverUrl;
 
     private String author;
 
     private String url;
+
+    private String publishedAt;
 
     public String getContent() {
         return content;
@@ -57,6 +61,22 @@ public class Article implements Media {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getPublishedAt() {
+        return publishedAt;
+    }
+
+    public void setPublishedAt(String publishedAt) {
+        this.publishedAt = publishedAt;
     }
 
     @Override

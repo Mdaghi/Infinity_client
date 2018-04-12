@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WatchListDetailsController">
+   <children>
+      <HBox prefHeight="60.0" prefWidth="1207.0" styleClass="box-topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="lbTitle" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Update Watchlist" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS" />
+            <ToggleButton mnemonicParsing="false" onAction="#telaCadastro" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-add" />
+               </styleClass>
+               <toggleGroup>
+                  <ToggleGroup fx:id="menu" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#telaEdicao" text="" toggleGroup="$menu">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-editar" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#telaExcluir" text="" toggleGroup="$menu">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-excluir" />
+               </styleClass>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <GridPane fx:id="telaCadastro" hgap="10.0" layoutX="236.0" layoutY="157.0" prefHeight="313.0" prefWidth="887.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="236.0" AnchorPane.rightAnchor="259.0" AnchorPane.topAnchor="157.0">
+         <children>
+            <Label styleClass="lb-info-requerido" text="Name:" GridPane.rowIndex="1" />
+            <TextField fx:id="txtName" styleClass="campo" visible="true" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+            <Label styleClass="lb-info" text="Description:" GridPane.rowIndex="3" />
+            <TextArea fx:id="txtDescription" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Label styleClass="lb-info" text="the description field must not exceed 255 characters" GridPane.rowIndex="5" />
+            <Label styleClass="lb-info" text=" 255/255 caracters" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lbId" />
+            <Button id="" fx:id="btUpdate" contentDisplay="TOP" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="200.0" style="" text="Update" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-editar" />
+                  <String fx:value="menu-laranja" />
+               </styleClass>
+            </Button>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="905.0" minWidth="10.0" prefWidth="602.0" />
+            <ColumnConstraints />
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="35.0" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+         </rowConstraints>
+      </GridPane>
+      <AnchorPane prefHeight="50.0" styleClass="box-menus-subtela" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+         <children>
+            <StackPane AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+            <Label fx:id="legenda" layoutX="221.0" layoutY="17.0" prefHeight="40.0" prefWidth="431.0" styleClass="lb-info-requerido" text="All fields with the red asterix are required" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@../css/default.css" />
+      <URL value="@../css/custom.css" />
+   </stylesheets>
+</AnchorPane>

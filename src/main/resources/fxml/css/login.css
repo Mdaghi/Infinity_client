@@ -3,7 +3,7 @@
 }
 
 .background {
-    -fx-background-image: url("../img/Background-login.jpg");
+    -fx-background-image: url("../img/Background.jpg");
     -fx-background-size: 100% 100%;
     -fx-background-color: transparent;
     -fx-background-position: top;
@@ -42,7 +42,7 @@
 }
 
 .login-img {
-    -fx-image: url("../img/login2.png");
+    -fx-image: url("../img/login2-Final.png");
 }
 
 .login-txt {
@@ -55,7 +55,6 @@
     -fx-border-color: #d8d8d8;
     -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.69), 5, 0.1, 2, 2);
 }
-
 .nome,
 .senha {
     -fx-background-color: transparent;
@@ -64,29 +63,44 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: left center;
     -fx-padding: 0 5 0 30;
-    -fx-text-fill: #6d6d6d;
-    -fx-prompt-text-fill: #797979;
+    -fx-text-fill: #cdcdcd;
+    -fx-prompt-text-fill: #cdcdcd;
     -fx-highlight-fill: #dee3c0;
     -fx-highlight-text-fill: #333;
 }
-
 .nome:focused,
 .senha:focused {
     -fx-prompt-text-fill: transparent;
 }
 
+.registration {
+    -fx-background-color: transparent;
+    -fx-border-color: #e8e8e8;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left center;
+    -fx-padding: 0 5 0 30;
+    -fx-text-fill: #cdcdcd;
+    -fx-prompt-text-fill: #cdcdcd;
+    -fx-highlight-fill: #cdcdcd;
+    -fx-highlight-text-fill: #333;
+}
+.registration:focused {
+    -fx-prompt-text-fill: transparent;
+}
+
 .nome {
-    -fx-background-image: url("../img/user-b.png");
+    -fx-background-image: url("../img/user-b-white.png");
 }
 
 .senha {
-    -fx-background-image: url("../img/key.png");
+    -fx-background-image: url("../img/key-white.png");
 }
 
 .bt-logar {
     -fx-text-fill: #fff;
-    -fx-background-color: #D5C2FF;
-    -fx-border-color: #8F7CEA;
+    -fx-background-color: #2a2d57;
+    -fx-border-color: #565982;
     -fx-border-insets: 0;
     -fx-background-insets: 0;
     -fx-border-radius: 0;
@@ -94,10 +108,20 @@
     -fx-content-display: right;
     -fx-cursor: hand;
 }
+.bt-seif {
+    -fx-text-fill: #fff;
+    -fx-background-color: #2a2d57;
+    -fx-border-color: #565982;
+    -fx-border-insets: 0;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-content-display: right;
+    -fx-cursor: hand;
+}
 
 .bt-logar:hover,
 .bt-logar:selected {
-    -fx-background-color: #8F7CEA;
+    -fx-background-color: #565982;
 }
 
 .error {
@@ -119,7 +143,7 @@
 .link:hover,
 .link:focused {
     -fx-padding: 0px;
-    -fx-text-fill: #8F7CEA;
+    -fx-text-fill: #565982;
     -fx-border-width: 0px;
     -fx-underline: false;
     -fx-alignment: bottom-center;

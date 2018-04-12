@@ -23,17 +23,37 @@
 			<groupId>tn.esprit</groupId>
 			<artifactId>infinity_server-ejb</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-
-
 			<type>ejb</type>
 		</dependency>
+
+		<!-- Wildfly dependency -->
 		<dependency>
 			<groupId>org.wildfly</groupId>
 			<artifactId>wildfly-ejb-client-bom</artifactId>
 			<version>9.0.0.Alpha1</version>
 			<type>pom</type>
 		</dependency>
+		<!-- Sending mail API -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.5.5</version>
+		</dependency>
 
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+		<!-- JavaFx junit dependency -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Hibernate dependency -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -59,6 +79,17 @@
 			<groupId>com.jfoenix</groupId>
 			<artifactId>jfoenix</artifactId>
 			<version>1.4.0</version>
+		</dependency>
+		<!-- controlsfx dependency -->
+		<dependency>
+			<groupId>org.controlsfx</groupId>
+			<artifactId>controlsfx</artifactId>
+			<version>8.40.14</version>
+		</dependency>
+		<dependency>
+			<groupId>org.controlsfx</groupId>
+			<artifactId>openjfx-dialogs</artifactId>
+			<version>1.0.2</version>
 		</dependency>
 
 
@@ -156,3 +187,4 @@
 	</build>
 
 </project>
+>>>>>>> branch 'master' of https://github.com/Mdaghi/Infinity_client.git
