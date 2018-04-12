@@ -1,15 +1,12 @@
 package esprit.tn.Infinity_client;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tn.esprit.infinity_server.interfaces.WatchListsBondsRemote;	
 
 
 public class MainApp extends Application {

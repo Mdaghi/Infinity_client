@@ -21,6 +21,7 @@ import javax.swing.ListCellRenderer;
 import org.controlsfx.control.Notifications;
 
 import Util.Controls;
+import Util.Session;
 import javafx.scene.control.ListView;
 
 import java.util.ResourceBundle;
@@ -131,16 +132,17 @@ public class WatchListController implements Initializable{
 
     @FXML
     void telaCadastro(ActionEvent event) {
-
+    	//Non implementer
     }
 
     @FXML
     void telaEdicao(ActionEvent event) {
-
+    	//Non implementer
     }
 
     @FXML
     void telaExcluir(ActionEvent event) {
+    	//Non implementer
 
     }
 
@@ -159,8 +161,7 @@ public class WatchListController implements Initializable{
 			watchList.setCreationDate(date);
 			if(txtName.getText().length()!=0 && txtDescription.getText().length()!=0 && control.validateName(txtName.getText()).equals(""))
 			{
-				System.out.println("hahahahaha");
-				proxy2.createWatchList(watchList,1);
+				proxy2.createWatchList(watchList,Session.getUser().getId());
 				/*********Notification Of The Success*****************/
 				Notifications not = Notifications.create()
                         .title("Successfull operation")
@@ -222,26 +223,27 @@ public class WatchListController implements Initializable{
 	
     @FXML
     void menuDashboard(ActionEvent event) {
-
+    	//non implementer
     }
 
     @FXML
     void editProfile(ActionEvent event) {
-
+    	//non implementer
     }
 
     @FXML
     void changePassword(ActionEvent event) {
-
+    	//non implementer
     }
 
     @FXML
     void desactivate(ActionEvent event) {
+    	//non implementer
 
     }
 
     @FXML
     void Logout(ActionEvent event) {
-
+    	//non implementer
     }
 }

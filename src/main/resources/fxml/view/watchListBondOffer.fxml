@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import java.lang.String?>
 <?import java.net.URL?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
@@ -19,6 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WatchListBondOfferController">
    <children>
@@ -26,6 +26,14 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
+                  <AnchorPane fx:id="ancFeedbacks" layoutX="30.0" layoutY="510.0" prefHeight="200.0" prefWidth="550.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadfe4" height="200.0" stroke="#332f5b" strokeType="INSIDE" strokeWidth="2.0" width="762.0" />
+                        <ListView fx:id="lvComments" layoutX="4.0" layoutY="7.0" prefHeight="132.0" prefWidth="752.0" />
+                     </children>
+                  </AnchorPane>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadfe4" height="407.0" layoutX="387.0" layoutY="71.0" stroke="#332f5b" strokeType="INSIDE" strokeWidth="3.0" width="332.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadfe4" height="407.0" layoutX="29.0" layoutY="71.0" stroke="#332f5b" strokeType="INSIDE" strokeWidth="3.0" width="332.0" />
                   <ListView fx:id="lvWatchLists" layoutX="400.0" layoutY="80.0" prefHeight="200.0" prefWidth="596.0" />
                   <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="30.0" styleClass="box-footer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
@@ -33,7 +41,7 @@
                         <Hyperlink alignment="CENTER_RIGHT" layoutY="2.0" prefHeight="28.0" prefWidth="120.0" styleClass="link" text="Intellixx" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
-                  <GridPane layoutX="50.0" layoutY="80.0" prefHeight="450.0" prefWidth="900.0">
+                  <GridPane layoutX="50.0" layoutY="80.0" prefHeight="406.0" prefWidth="900.0">
                      <children>
                         <GridPane fx:id="telaCadastro1" hgap="10.0" prefHeight="442.0" prefWidth="250.0">
                            <children>
@@ -91,30 +99,13 @@
                               <RowConstraints maxHeight="90.0" minHeight="30.0" prefHeight="90.0" />
                            </rowConstraints>
                         </GridPane>
-                        <HBox prefHeight="49.0" prefWidth="222.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <children>
-                              <Hyperlink fx:id="hlFeedbacks" onAction="#feedBacks" text="Show feedbacks">
-                                 <HBox.margin>
-                                    <Insets left="50.0" />
-                                 </HBox.margin>
-                              </Hyperlink>
-                           </children>
-                        </HBox>
-                        <Label fx:id="likesLab" text="Total Likes:" GridPane.columnIndex="2" GridPane.valignment="TOP" />
-                        <Label fx:id="dislikesLab" text="Total dislikes:" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                        </Label>
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.0" minWidth="10.0" prefWidth="220.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="553.0" minWidth="10.0" prefWidth="220.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="406.0" minHeight="10.0" prefHeight="401.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="219.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                   </GridPane>
                   <HBox prefHeight="60.0" prefWidth="974.0" styleClass="box-topo">
@@ -148,7 +139,9 @@
                            </styleClass></JFXButton>
                      </children>
                   </HBox>
-                  <ListView fx:id="lvComments" layoutX="40.0" layoutY="530.0" prefHeight="139.0" prefWidth="761.0" />
+                  <Label fx:id="likesLab" layoutX="956.0" layoutY="371.0" text="Total Likes:" />
+                  <Label fx:id="dislikesLab" layoutX="950.0" layoutY="337.0" text="Total dislikes:" />
+                  <Hyperlink fx:id="hlFeedbacks" layoutX="327.0" layoutY="486.0" onAction="#feedBacks" text="Show feedbacks" />
                </children>
             </AnchorPane>
          </center>

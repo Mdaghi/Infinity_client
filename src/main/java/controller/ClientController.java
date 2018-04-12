@@ -79,6 +79,10 @@ public class ClientController implements Initializable {
     private ToggleButton btnCalculator;
     @FXML
     private ToggleButton btnManageFuture;
+    
+
+    @FXML
+    private ToggleButton tgWatchList;
     /**
      * Initializes the controller class.
      */
@@ -177,4 +181,6 @@ public class ClientController implements Initializable {
     	FutureController.stopListener();
     	CalculateFutureController.stopListener();
     }
+    
+    
 }

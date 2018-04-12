@@ -38,6 +38,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TreeCell;
@@ -70,6 +71,8 @@ import tn.esprit.infinity_server.persistence.WatchlistsBond;
 
 public class WatchListBondOfferController implements Initializable{
 
+	@FXML
+    private AnchorPane ancFeedbacks;
     @FXML
     private ListView<Commentaire> lvComments;
     @FXML
@@ -321,7 +324,6 @@ public class WatchListBondOfferController implements Initializable{
 											 proxy.deleteWatchListsBonds(1, w.getId());
 											 lvWatchLists.setVisible(false);
 											 counter++;
-												System.out.println(w.getIdBond()+"   "+counter);
 
 										}
 
@@ -357,7 +359,6 @@ public class WatchListBondOfferController implements Initializable{
 		
 		counter++;
     	if(counter%2==1)
-    	//lvWatchLists. toFront();
 		 lvWatchLists.setVisible(true);
     	else
 		 lvWatchLists.setVisible(false);
@@ -369,7 +370,7 @@ public class WatchListBondOfferController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		ancFeedbacks.setVisible(false);
 		String jndiName="infinity_server-ear/infinity_server-ejb/WatchListsBondsService!tn.esprit.infinity_server.interfaces.WatchListsBondsRemote";
 		Context context;
 		try {
@@ -412,7 +413,6 @@ public class WatchListBondOfferController implements Initializable{
 		/****************Visibility***********************/
     	lvWatchLists. toBack();
     	lvWatchLists.setVisible(false);
-    	//tvComments.setVisible(false);
 
     	/******************Comments***************/
     	String jndiName1="infinity_server-ear/infinity_server-ejb/CommentService!tn.esprit.infinity_server.interfaces.CommentRemote";
@@ -493,41 +493,133 @@ public class WatchListBondOfferController implements Initializable{
 								        pk.setIdBondOffer(w.getIdBondOffer());
 								        pk.setCommentDate(w.getCommentDate());
 								        System.out.println(pk.getIdClient()+" "+pk.getIdBondOffer()+" "+pk.getCommentDate());
-
-										List<Commentaire> c=likeRemote.readAllSubCommentsBond(pk);
-										for(Commentaire x:c)
-										{
-											System.out.println(x);
-										}
-										/*************************************/
+								        String jndiName2="infinity_server-ear/infinity_server-ejb/CommentService!tn.esprit.infinity_server.interfaces.CommentRemote";
+										  Context context2;
+											
+												try {
+													context2 = new InitialContext();
+												
+												CommentRemote subComments=(CommentRemote) context1.lookup(jndiName2);
+												List<Commentaire> sub=subComments.readAllSubCommentsBond(pk);
 										
-										Stage stage=new Stage();
-								    	Scene scene = new Scene(new Group());
-								        stage.setTitle("Sub Comments");
-								        stage.setWidth(500);
-								        stage.setHeight(500);
-								        								       
-								        //lvSubComments
-								      
+												/*************************************/
+												Stage stage=new Stage();
+										    	Scene scene = new Scene(new Group());
+										        stage.setTitle("Affectation stats");
+										        stage.setWidth(750);
+										        stage.setHeight(500);
+										        final ListView<Commentaire> lvSubComments=new ListView();
+										        
+										        lvSubComments.setItems(FXCollections.observableArrayList(sub));
+												lvSubComments.setCellFactory(new Callback<ListView<Commentaire>, ListCell<Commentaire>>() {
+														
+									    				@Override
+														public ListCell<Commentaire> call(ListView<Commentaire> param) {
+															ListCell<Commentaire> cell=new ListCell<Commentaire>(){
+																@Override
+																protected void updateItem(Commentaire w, boolean bln) {
+																	super.updateItem(w, bln);
+																	if(w!=null)
+																	{
+																		HBox hBox = new HBox(4);
+																		hBox.setPrefHeight(100);
+																		hBox.setPrefWidth(500);
+																		hBox.setStyle("");
+																		
+																		VBox vBox = new VBox(1);
+																		vBox.setPrefHeight(100);
+																		vBox.setPrefWidth(100);
+																		vBox.setStyle("-fx-padding: 5 5 5 5;");
+
+																		VBox vBoxTwo = new VBox(1);
+																		vBoxTwo.setPrefHeight(100);
+																		vBoxTwo.setPrefWidth(200);
+																		vBoxTwo.setStyle("-fx-padding: 5 5 5 5;");
+																		
+																		VBox vBoxThree = new VBox(1);
+																		vBoxThree.setPrefHeight(100);
+																		vBoxThree.setPrefWidth(200);
+																		vBoxThree.setStyle("-fx-padding: 5 5 5 5;");
+																		
+																		VBox vBoxFour = new VBox(1);
+																		vBoxFour.setPrefHeight(100);
+																		vBoxFour.setPrefWidth(70);
+																		vBoxFour.setStyle("-fx-padding: 5 5 5 5;");
+																		
+																		final ImageView imageDisplay = new ImageView(imgPart);
+																		final ImageView imageRemove = new ImageView(imgDelete);
+																		
+
+
+																		
+
+																		Label idClient = new Label(String.valueOf(w.getIdClient()));
+																		idClient.setStyle("-fx-font-weight: bold;-fx-font-size : 24 ;");
+																		Label date = new Label(String.valueOf(w.getCommentDate()));
+																		date.setStyle("-fx-font-weight: bold;-fx-font-size : 24 ;");
+																		
+																		Label idBond = new Label(String.valueOf(w.getIdBondOffer()));
+																		idBond.setStyle("-fx-font-weight: bold;-fx-font-size : 24 ;");
+																		Label message = new Label(String.valueOf(w.getMessage()));
+																		idBond.setStyle("-fx-font-weight: bold;-fx-font-size : 24 ;");
+																		
+																		
+																		
+																		
+																		vBox.getChildren().add(idClient);
+																		vBoxTwo.getChildren().add(message);
+																		vBoxFour.getChildren().add(date);
+																		hBox.getChildren().addAll(idClient,vBoxFour,vBoxTwo);
+																		
+
+																		setGraphic(hBox);
+																			
+
+																	}
+																	else
+																		setGraphic(null);
+																}
+															};
+															return cell;
+														}
+													});
+
+													final TextArea post=new TextArea();
+													final JFXButton btPost=new JFXButton();
+													btPost.setText("Post");
+													btPost.setPrefWidth(100);
+													btPost.setPrefHeight(50);
+													btPost.setLayoutX(650);
+													btPost.setLayoutY(500);
+													post.setPrefWidth(400);
+													post.setPrefHeight(150);
+													post.setLayoutX(0);
+													post.setLayoutY(200);
+													
+													lvSubComments.setPrefHeight(130);
+													lvSubComments.setPrefWidth(500);
+													Stage stageTwo=new Stage();
+													Scene sceneTwo = new Scene(new Group());
+													stageTwo.setTitle("Sub Comments");
+													stageTwo.setWidth(800);
+													stageTwo.setHeight(500);
+													 ((Group) sceneTwo.getRoot()).getChildren().addAll(lvSubComments,post,btPost);
+													  stageTwo.setScene(sceneTwo);
+												        stageTwo.show();
+												} catch (NamingException e) {
+													e.printStackTrace();
+												}								       
+								        
 										/**********************************/
 									}
 									
 								});
-
-
-
-								imageRemove.setOnMousePressed(e->{
-									
-
-								});
-								//vBoxThree.getChildren().add(imageDisplay);
 								vBoxFour.getChildren().add(imageSubComment);
 								vBoxTwo.getChildren().add(creationDate);
 								vBoxThree.getChildren().add(description);
 								vBox.getChildren().add(name);
 								hBoxContainer.getChildren().addAll(vBox,vBoxTwo,vBoxThree,vBoxFour);
 								setGraphic(hBoxContainer);
-
 							}
 							else
 								setGraphic(null);
@@ -725,7 +817,7 @@ public class WatchListBondOfferController implements Initializable{
 	    
 	    @FXML
 	    void feedBacks(ActionEvent event) throws IOException {
-	    	
+	    	ancFeedbacks.setVisible(true);
 	    }
 	    
 
