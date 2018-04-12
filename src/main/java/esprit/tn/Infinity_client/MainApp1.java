@@ -1,5 +1,6 @@
 package esprit.tn.Infinity_client;
 
+import controller.FXMLController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,17 +8,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;	
 
 
-public class MainBondsOffers extends Application {
+public class MainApp1 extends Application {
 
-    @Override
+   @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/BondsOffersDetails.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/test.fxml"));
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
-        stage.show();
-
+        stage.show();       
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/view/bonddemandaffectation.fxml"));
+        loader.setRoot(root);
+        loader.load();
     }
 
     /**
@@ -31,4 +33,5 @@ public class MainBondsOffers extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

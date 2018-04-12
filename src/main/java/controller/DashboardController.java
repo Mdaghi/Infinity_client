@@ -6,7 +6,7 @@
  */
 package controller;
 
-import com.github.kevinsawicki.http.HttpRequest;
+//import com.github.kevinsawicki.http.HttpRequest;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -279,86 +279,86 @@ public class DashboardController implements Initializable {
         */
     }
 
-    void buildQuotes() {
-        quotes.getChildren().clear();
-        String response = HttpRequest.get("https://forex.1forge.com/1.0.3/quotes?pairs=EURUSD,GBPJPY,AUDUSD&api_key=mxQ7qIR5ttl5x1bjQbmoivWLZRR2xiqs", true, "q", "baseball gloves", "size", 100)
-                .accept("application/json")
-                .body();
-
-        SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss.SSS");
-        JSONArray jsonarray = new JSONArray(response);
-        for (int i = 0; i < jsonarray.length(); i++) {
-            JSONObject jsonobject = jsonarray.getJSONObject(i);
-            Label quote = new Label();
-            quote.setWrapText(true);
-            String toQuote = jsonobject.getString("symbol") + "\n" + "--------------------------------\n";
-            toQuote += "price: " + jsonobject.getDouble("price") + "\n";
-            toQuote += "ask: " + jsonobject.getDouble("ask") + "\n";
-            toQuote += "bid: " + jsonobject.getDouble("bid") + "\n";
-            Date date = new Date(1000 * jsonobject.getLong("timestamp"));
-            toQuote += "time: " + sf.format(date) + "\n";
-            toQuote += "--------------------------------";
-            quote.setText(toQuote);
-            quote.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF;");
-            quotes.getChildren().add(quote);
-        }
-
-        Date current = new Date();
-        Label quotesLatestUpdate = new Label("LATEST UPDATE: " + sf.format(current).toString());
-        quotesLatestUpdate.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 14;");
-        quotesUpdateSeprator = new Label(".");
-        quotesUpdateSeprator.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 14;");
-
-        quotesUpdate.getChildren().clear();
-        quotesUpdate.getChildren().add(quotesLatestUpdate);
-        quotesUpdate.getChildren().add(quotesUpdateSeprator);
-
-        quotesSeprator = new Label(".");
-        quotesSeprator.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF;");
-        quotes.getChildren().add(quotesSeprator);
-    }
-
-    void buildStockQuotes() {
-        quotes.getChildren().clear();
-        String[] symbols = {"MSFT", "GOOG", "AAPL"};
-        SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss.SSS");
-        for (int i = 0; i < symbols.length; i++) {
-            String response = HttpRequest.get("https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=" + symbols[i] + "&interval=1min&apikey=R5Y2Z66NSW3CFTXA")
-                    .accept("application/json")
-                    .body();
-            JSONObject jsonObject = new JSONObject(response);
-            JSONObject result = ((JSONObject) ((JSONObject) jsonObject.get("Monthly Time Series")).get("2018-03-02"));
-            Label quote = new Label();
-            quote.setWrapText(true);
-            String toQuote = symbols[i] + "\n" + "--------------------------------\n";
-            toQuote += "open: " + result.getDouble("1. open") + "\n";
-            toQuote += "high: " + result.getDouble("2. high") + "\n";
-            toQuote += "low: " + result.getDouble("3. low") + "\n";
-            toQuote += "close: " + result.getDouble("4. close") + "\n";
-            toQuote += "volume: " + result.getDouble("5. volume") + "\n";
-            Date date = new Date();
-            toQuote += "time: " + sf.format(date) + "\n";
-            toQuote += "--------------------------------";
-            quote.setText(toQuote);
-            quote.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF;");
-            quotes.getChildren().add(quote);
-        }
-
-        Date current = new Date();
-        Label quotesLatestUpdate = new Label("LATEST UPDATE: " + sf.format(current).toString());
-        quotesLatestUpdate.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 14;");
-        quotesUpdateSeprator = new Label(".");
-        quotesUpdateSeprator.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 14;");
-
-        quotesUpdate.getChildren().clear();
-        quotesUpdate.getChildren().add(quotesLatestUpdate);
-        quotesUpdate.getChildren().add(quotesUpdateSeprator);
-
-        quotesSeprator = new Label(".");
-        quotesSeprator.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF;");
-        quotes.getChildren().add(quotesSeprator);
-
-    }
+//    void buildQuotes() {
+//        quotes.getChildren().clear();
+//        String response = HttpRequest.get("https://forex.1forge.com/1.0.3/quotes?pairs=EURUSD,GBPJPY,AUDUSD&api_key=mxQ7qIR5ttl5x1bjQbmoivWLZRR2xiqs", true, "q", "baseball gloves", "size", 100)
+//                .accept("application/json")
+//                .body();
+//
+//        SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss.SSS");
+//        JSONArray jsonarray = new JSONArray(response);
+//        for (int i = 0; i < jsonarray.length(); i++) {
+//            JSONObject jsonobject = jsonarray.getJSONObject(i);
+//            Label quote = new Label();
+//            quote.setWrapText(true);
+//            String toQuote = jsonobject.getString("symbol") + "\n" + "--------------------------------\n";
+//            toQuote += "price: " + jsonobject.getDouble("price") + "\n";
+//            toQuote += "ask: " + jsonobject.getDouble("ask") + "\n";
+//            toQuote += "bid: " + jsonobject.getDouble("bid") + "\n";
+//            Date date = new Date(1000 * jsonobject.getLong("timestamp"));
+//            toQuote += "time: " + sf.format(date) + "\n";
+//            toQuote += "--------------------------------";
+//            quote.setText(toQuote);
+//            quote.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF;");
+//            quotes.getChildren().add(quote);
+//        }
+//
+//        Date current = new Date();
+//        Label quotesLatestUpdate = new Label("LATEST UPDATE: " + sf.format(current).toString());
+//        quotesLatestUpdate.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 14;");
+//        quotesUpdateSeprator = new Label(".");
+//        quotesUpdateSeprator.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 14;");
+//
+//        quotesUpdate.getChildren().clear();
+//        quotesUpdate.getChildren().add(quotesLatestUpdate);
+//        quotesUpdate.getChildren().add(quotesUpdateSeprator);
+//
+//        quotesSeprator = new Label(".");
+//        quotesSeprator.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF;");
+//        quotes.getChildren().add(quotesSeprator);
+//    }
+//
+//    void buildStockQuotes() {
+//        quotes.getChildren().clear();
+//        String[] symbols = {"MSFT", "GOOG", "AAPL"};
+//        SimpleDateFormat sf = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss.SSS");
+//        for (int i = 0; i < symbols.length; i++) {
+//            String response = HttpRequest.get("https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=" + symbols[i] + "&interval=1min&apikey=R5Y2Z66NSW3CFTXA")
+//                    .accept("application/json")
+//                    .body();
+//            JSONObject jsonObject = new JSONObject(response);
+//            JSONObject result = ((JSONObject) ((JSONObject) jsonObject.get("Monthly Time Series")).get("2018-03-02"));
+//            Label quote = new Label();
+//            quote.setWrapText(true);
+//            String toQuote = symbols[i] + "\n" + "--------------------------------\n";
+//            toQuote += "open: " + result.getDouble("1. open") + "\n";
+//            toQuote += "high: " + result.getDouble("2. high") + "\n";
+//            toQuote += "low: " + result.getDouble("3. low") + "\n";
+//            toQuote += "close: " + result.getDouble("4. close") + "\n";
+//            toQuote += "volume: " + result.getDouble("5. volume") + "\n";
+//            Date date = new Date();
+//            toQuote += "time: " + sf.format(date) + "\n";
+//            toQuote += "--------------------------------";
+//            quote.setText(toQuote);
+//            quote.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF;");
+//            quotes.getChildren().add(quote);
+//        }
+//
+//        Date current = new Date();
+//        Label quotesLatestUpdate = new Label("LATEST UPDATE: " + sf.format(current).toString());
+//        quotesLatestUpdate.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 14;");
+//        quotesUpdateSeprator = new Label(".");
+//        quotesUpdateSeprator.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 14;");
+//
+//        quotesUpdate.getChildren().clear();
+//        quotesUpdate.getChildren().add(quotesLatestUpdate);
+//        quotesUpdate.getChildren().add(quotesUpdateSeprator);
+//
+//        quotesSeprator = new Label(".");
+//        quotesSeprator.setStyle("-fx-font-weight: bold; -fx-text-fill: #FFFFFF;");
+//        quotes.getChildren().add(quotesSeprator);
+//
+//    }
 
     void buildTotalCount() {
         libTotalArticlesFetched.setText("80");
@@ -370,19 +370,19 @@ public class DashboardController implements Initializable {
 
     }
 
-    @FXML
-    void stockSelect(ActionEvent event) {
-        stockFlag = true;
-        forexFlag = false;
-        buildStockQuotes();
-    }
-
-    @FXML
-    void forexSelect(ActionEvent event) {
-        stockFlag = false;
-        forexFlag = true;
-        buildQuotes();
-    }
+//    @FXML
+//    void stockSelect(ActionEvent event) {
+//        stockFlag = true;
+//        forexFlag = false;
+//        buildStockQuotes();
+//    }
+//
+//    @FXML
+//    void forexSelect(ActionEvent event) {
+//        stockFlag = false;
+//        forexFlag = true;
+//        buildQuotes();
+//    }
 
     @FXML
     void saveArticle(ActionEvent event) {

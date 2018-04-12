@@ -170,6 +170,7 @@ public class BondsOffersDetails implements Initializable {
 
 		proxy.removeBondsOffers(bondsofferstabel.getSelectionModel().getSelectedItem().getId());
 		bondsofferstabel.getItems().clear();
+		RemplirTable();
 
 	}
 

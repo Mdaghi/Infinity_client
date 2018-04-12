@@ -7,11 +7,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;	
 
 
-public class MainBondsOffers extends Application {
+public class MainContact extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/BondsOffersDetails.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/view/Contact.fxml"));
         Scene scene = new Scene(root);
         //scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("JavaFX and Maven");

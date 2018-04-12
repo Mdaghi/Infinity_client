@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefHeight="567.0" prefWidth="724.0" type="AnchorPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComparateurController">
+    <children>
+        <HBox prefHeight="60.0" prefWidth="609.0" styleClass="box-topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="461.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="lbTitulo" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="BONDS COMPARATEUR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+                </Label>
+                <TextField fx:id="txtPesquisar" prefHeight="50.0" prefWidth="417.0" promptText="Pesquisar" styleClass="pesquisar" />
+                <ToggleButton mnemonicParsing="false" text="">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-add" />
+                    </styleClass>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="menu" />
+                    </toggleGroup>
+                </ToggleButton>
+                <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" text="" toggleGroup="$menu">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-editar" />
+                    </styleClass>
+                </ToggleButton>
+                <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" text="" toggleGroup="$menu">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-excluir" />
+                    </styleClass>
+                </ToggleButton>
+            </children>
+        </HBox>
+        <AnchorPane fx:id="telaEdicao" visible="false" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+            <children>
+                <TableView fx:id="tbOrganizacao" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                    <columns>
+                        <TableColumn fx:id="colId" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="Id" />
+                        <TableColumn fx:id="colNome" maxWidth="500.0" minWidth="150.0" prefWidth="200.0" text="Nome" />
+                        <TableColumn fx:id="colSigla" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Sigla" />
+                        <TableColumn fx:id="colEmail" maxWidth="300.0" minWidth="150.0" prefWidth="200.0" text="Email" />
+                        <TableColumn fx:id="colFax" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Fax" />
+                        <TableColumn fx:id="colTelefone" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Telefone" />
+                        <TableColumn fx:id="colLogradouro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Logradouro" />
+                        <TableColumn fx:id="colBairro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Bairro" />
+                        <TableColumn fx:id="colCidade" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Cidade" />
+                        <TableColumn fx:id="colEstado" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Estado" />
+                        <TableColumn fx:id="colPais" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="País" />
+                        <TableColumn fx:id="colDescricao" maxWidth="500.0" minWidth="150.0" prefWidth="300.0" text="Descrição" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="482.0" prefWidth="1618.0" styleClass="box-menus-subtela" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="603.0">
+            <children>
+                <StackPane AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+            </children>
+        </AnchorPane>
+      <AnchorPane layoutX="8.0" layoutY="60.0" prefHeight="510.0" prefWidth="1062.0">
+         <children>
+            <AnchorPane fx:id="anchorpane2" layoutX="4.0" layoutY="199.0" prefHeight="238.0" prefWidth="590.0" style="-fx-background-color: #FAEBD7;">
+               <children>
+                  <ComboBox fx:id="periodBond" layoutX="12.0" layoutY="157.0" prefHeight="56.0" prefWidth="186.0" />
+                  <Label fx:id="labelperiod" layoutX="14.0" layoutY="110.0" prefHeight="40.0" prefWidth="81.0" text="Period Bond" />
+                  <TextField fx:id="couponvalue" layoutX="205.0" layoutY="157.0" prefHeight="40.0" prefWidth="179.0" style="-fx-border-color: #0000FF;">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="interet" layoutX="396.0" layoutY="157.0" prefHeight="40.0" prefWidth="179.0" style="-fx-border-color: #0000FF;">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="214.0" layoutY="110.0" prefHeight="40.0" prefWidth="103.0" text="Coupon Value" />
+                  <Label layoutX="407.0" layoutY="110.0" prefHeight="40.0" prefWidth="103.0" text="Inerest" />
+                  <ComboBox fx:id="typeBond" layoutX="16.0" layoutY="39.0" prefHeight="56.0" prefWidth="179.0" />
+                  <TextField fx:id="futurevalue" layoutX="205.0" layoutY="39.0" prefHeight="40.0" prefWidth="179.0" style="-fx-border-color: #0000FF;">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="couponnumber" layoutX="396.0" layoutY="39.0" prefHeight="40.0" prefWidth="179.0" style="-fx-border-color: #0000FF;">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="407.0" layoutY="-2.0" prefHeight="40.0" prefWidth="103.0" text="Coupon Number" />
+                  <Label layoutX="214.0" layoutY="-4.0" prefHeight="40.0" prefWidth="103.0" text="Future Value" />
+                  <Label layoutX="14.0" layoutY="-2.0" prefHeight="40.0" prefWidth="81.0" text="Bond Type" />
+               </children>
+            </AnchorPane>
+            <DatePicker fx:id="SendDate" layoutX="13.0" layoutY="59.0" prefHeight="40.0" prefWidth="179.0" />
+            <DatePicker fx:id="MatureDate" layoutX="202.0" layoutY="59.0" prefHeight="40.0" prefWidth="179.0" />
+            <TextField fx:id="Price" layoutX="13.0" layoutY="147.0" prefHeight="40.0" prefWidth="179.0" />
+            <TextField fx:id="ineteretcoupon" layoutX="202.0" layoutY="147.0" prefHeight="40.0" prefWidth="179.0" />
+            <Label layoutX="30.0" layoutY="19.0" prefHeight="40.0" prefWidth="66.0" text="Send Date" />
+            <Label layoutX="212.0" layoutY="19.0" prefHeight="40.0" prefWidth="81.0" text="Mature Date" />
+            <Label layoutX="30.0" layoutY="107.0" prefHeight="40.0" prefWidth="30.0" text="Price" />
+            <Label layoutX="212.0" layoutY="107.0" prefHeight="40.0" prefWidth="103.0" text="ineteret coupon" />
+            <Button fx:id="Calculate" contentDisplay="TOP" layoutX="397.0" layoutY="150.0" maxHeight="89.0" minWidth="80.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="89.0" prefWidth="103.0" style="" text="compare">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+            <Label fx:id="lblid1" layoutX="24.0" layoutY="219.0" />
+            <Button fx:id="Chart" contentDisplay="TOP" layoutX="397.0" layoutY="61.0" maxHeight="89.0" minWidth="80.0" mnemonicParsing="false" onAction="#chartAction" prefHeight="89.0" prefWidth="103.0" style="" text="View Chart">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+         </children>
+      </AnchorPane>
+    </children>
+    <stylesheets>
+        <URL value="@../css/default.css" />
+        <URL value="@../css/custom.css" />
+    </stylesheets>
+</fx:root>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import java.net.URL?>
+
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClaimsController">
+    <children>
+        <HBox prefHeight="60.0" prefWidth="1207.0" styleClass="box-topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="lbTitulo" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text=" CLAIM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+                </Label>
+                <TextField fx:id="cherchclaim" prefHeight="50.0" prefWidth="417.0" promptText="Pesquisar" styleClass="pesquisar" />
+                <ToggleButton mnemonicParsing="false" text="">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-add" />
+                    </styleClass>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="menu" />
+                    </toggleGroup>
+                </ToggleButton>
+                <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" text="" toggleGroup="$menu">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-editar" />
+                    </styleClass>
+                </ToggleButton>
+                <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" text="" toggleGroup="$menu">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-excluir" />
+                    </styleClass>
+                </ToggleButton>
+            </children>
+        </HBox>
+        <AnchorPane fx:id="telaEdicao" visible="false" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+            <children>
+                <TableView fx:id="tbOrganizacao" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                    <columns>
+                        <TableColumn fx:id="colId" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="Id" />
+                        <TableColumn fx:id="colNome" maxWidth="500.0" minWidth="150.0" prefWidth="200.0" text="Nome" />
+                        <TableColumn fx:id="colSigla" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Sigla" />
+                        <TableColumn fx:id="colEmail" maxWidth="300.0" minWidth="150.0" prefWidth="200.0" text="Email" />
+                        <TableColumn fx:id="colFax" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Fax" />
+                        <TableColumn fx:id="colTelefone" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Telefone" />
+                        <TableColumn fx:id="colLogradouro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Logradouro" />
+                        <TableColumn fx:id="colBairro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Bairro" />
+                        <TableColumn fx:id="colCidade" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Cidade" />
+                        <TableColumn fx:id="colEstado" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Estado" />
+                        <TableColumn fx:id="colPais" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="País" />
+                        <TableColumn fx:id="colDescricao" maxWidth="500.0" minWidth="150.0" prefWidth="300.0" text="Descrição" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="500.0" prefWidth="600.0" styleClass="box-menus-subtela" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+            <children>
+                <StackPane AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+            </children>
+        </AnchorPane>
+      <AnchorPane layoutX="8.0" layoutY="60.0" prefHeight="482.0" prefWidth="1436.0">
+         <children>
+            <Label layoutX="16.0" layoutY="190.0" prefHeight="40.0" prefWidth="66.0" text="Description" />
+            <TableView fx:id="tableViewDemand" layoutX="1.0" prefHeight="179.0" prefWidth="674.0">
+              <columns>
+                  <TableColumn fx:id="columndateclaim" prefWidth="135.0" text="claimdate" />
+                <TableColumn fx:id="Description" prefWidth="404.0" text="Description" />
+                  <TableColumn fx:id="status" prefWidth="134.0" text="status" />
+              </columns>
+            </TableView>
+            <TextArea fx:id="txtareaDescription" layoutX="33.0" layoutY="241.0" prefHeight="127.0" prefWidth="485.0" />
+            <Button fx:id="addclaim" contentDisplay="TOP" layoutX="90.0" layoutY="193.0" maxHeight="89.0" minWidth="145.0" mnemonicParsing="false" onAction="#addAction" prefHeight="89.0" prefWidth="145.0" style="" text="add claim">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+            <Button fx:id="updateclaim" contentDisplay="TOP" layoutX="299.0" layoutY="193.0" maxHeight="89.0" minWidth="145.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="89.0" prefWidth="145.0" style="" text="update claim">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+            <Button fx:id="deleteclaim" contentDisplay="TOP" layoutX="506.0" layoutY="193.0" maxHeight="89.0" minWidth="145.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="89.0" prefWidth="145.0" style="" text="delete claim">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="lblid2" layoutX="34.0" layoutY="229.0" />
+    </children>
+    <stylesheets>
+        <URL value="@../css/default.css" />
+        <URL value="@../css/custom.css" />
+    </stylesheets>
+</fx:root>

@@ -155,6 +155,7 @@ public class BondsOffersAddController {
         bondsoffer.setSeries(series.getText());
         bondsoffer.setMaturityDate(java.sql.Date.valueOf(maturitydate.getValue()));
         bondsoffer.setPrintDate(java.sql.Date.valueOf(printdate.getValue()));
+        bondsoffer.setStatusOffer("not affected");
         proxy.addBondsOffers(bondsoffer,1);
         
        
