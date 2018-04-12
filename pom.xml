@@ -91,7 +91,16 @@
 			<artifactId>openjfx-dialogs</artifactId>
 			<version>1.0.2</version>
 		</dependency>
-
+		<dependency>
+		    <groupId>uk.ac.abdn</groupId>
+		    <artifactId>SimpleNLG</artifactId>
+		    <version>4.4.8</version>
+		</dependency>
+		<dependency>
+		    <groupId>net.sf.sociaal</groupId>
+		    <artifactId>freetts</artifactId>
+		    <version>1.2.2</version>
+		</dependency>
 
 	</dependencies>
 
@@ -187,4 +196,3 @@
 	</build>
 
 </project>
->>>>>>> branch 'master' of https://github.com/Mdaghi/Infinity_client.git

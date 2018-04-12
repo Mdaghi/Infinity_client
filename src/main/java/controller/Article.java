@@ -6,7 +6,6 @@
 package controller;
 
 import com.guigarage.controls.Media;
-import java.awt.Color;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;

@@ -8,6 +8,54 @@
     src: url('../font/OpenSans-Semibold.ttf');
 }
 
+/* CELLS TABLE VIEW */
+.table-cell:even {
+    -fx-background-color: null;
+    -fx-border-color: transparent transparent transparent transparent;
+    -fx-cell-size: 2em;
+    -fx-padding: 0.5em 0.6em;
+    -fx-pref-height: 30px;
+    -fx-text-fill: #000;
+}
+
+.table-row-cell:even {
+    -fx-background: -fx-control-inner-background;
+    -fx-background-color: #f7f7f7, #fff;
+    -fx-background-insets: 0px, 0px 0px 1px 0px;
+    -fx-padding: 0px;
+}
+
+.table-row-cell:even:selected {
+	-fx-border-color: black;
+    -fx-background: -fx-control-inner-background;
+    -fx-background-color: white transparent, white;
+    -fx-background-insets: 0px, 1px 0px 1px 0px;
+}
+
+.table-cell:odd {
+    -fx-background-color: null;
+    -fx-border-color: transparent transparent transparent transparent;
+    -fx-text-fill: #000;
+    -fx-cell-size: 2em;
+    -fx-padding: 0.5em 0.6em;
+    -fx-pref-height: 30px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f7f7f7, #fff;
+    -fx-background: -fx-control-inner-background;
+    -fx-background-insets: 0px, 0px 0px 1px 0px;
+    -fx-padding: 0px;
+}
+
+.table-row-cell:odd:selected {
+	-fx-border-color: black;
+    -fx-background: -fx-control-inner-background;
+    -fx-background-color: white transparent, white;
+    -fx-background-insets: 0px, 1px 0px 1px 0px;
+    -fx-text-fill: black;
+}
+
 /*....... Genericos .....*/
 
 .campo {
@@ -152,6 +200,18 @@
 .menu-add:hover,
 .menu-add:selected {
     -fx-graphic: url("../img/add-h.png");
+}
+
+.menu-comment {
+    -fx-graphic: url("../img/util-b.png");
+}
+
+
+.highlightedRow {
+    -fx-background-color: red;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: -fx-selection-bar-text;
 }
 
 .menu-confirm {
@@ -1162,15 +1222,5 @@
     -fx-background-color: transparent;
     -fx-background-insets: 0;
     -fx-padding: 0;
-}
-
-.menu-orange {
-    -fx-background-color: linear-gradient(to top right, #eea236, #eea236);
-    -fx-border-color: linear-gradient(to top right, #eea236, #eea236);
-}
-
-.menu-orange:pressed {
-    -fx-background-color: #eea236;
-    -fx-border-color: #eea236;
 }
 
