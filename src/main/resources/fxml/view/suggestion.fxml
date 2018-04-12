@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SuggestionController">
+   <children>
+      <Label layoutX="23.0" layoutY="52.0" prefHeight="18.0" prefWidth="152.0" text="coupon rate between" />
+      <Label fx:id="t_result" layoutX="206.0" layoutY="52.0" prefHeight="18.0" prefWidth="106.0" />
+      <Label fx:id="t_maxcoupon" layoutX="438.0" layoutY="52.0" prefHeight="18.0" prefWidth="106.0" />
+      <Label layoutX="368.0" layoutY="51.0" text="and" />
+      <Label layoutX="30.0" layoutY="90.0" text="Issue Date Between" />
+      <Label fx:id="t_maxIssueDate" layoutX="189.0" layoutY="89.0" prefHeight="18.0" prefWidth="97.0" />
+      <Label layoutX="364.0" layoutY="90.0" text="and" />
+      <Label fx:id="t_mnissuedate" layoutX="430.0" layoutY="89.0" prefHeight="18.0" prefWidth="138.0" />
+   </children>
+</AnchorPane>

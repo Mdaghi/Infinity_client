@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BondsOffersController">
+   <children>
+      <Button fx:id="button" layoutX="568.0" layoutY="416.0" mnemonicParsing="false" onAction="#addbondsoffers" text="Add Bonds" />
+      <TextField fx:id="securitynumber" layoutX="512.0" layoutY="74.0" onAction="#addbondsoffers" prefHeight="26.0" prefWidth="187.0" />
+      <TextField fx:id="series" layoutX="512.0" layoutY="127.0" prefHeight="26.0" prefWidth="187.0" />
+      <TextField fx:id="interestrate" layoutX="512.0" layoutY="239.0" prefHeight="26.0" prefWidth="187.0" />
+      <TextField fx:id="couponrate" layoutX="176.0" layoutY="293.0" prefHeight="26.0" prefWidth="187.0" />
+      <TextField fx:id="owner" layoutX="176.0" layoutY="127.0" prefHeight="26.0" prefWidth="187.0" />
+      <TextField fx:id="printplace" layoutX="176.0" layoutY="239.0" prefHeight="26.0" prefWidth="187.0" />
+      <TextField fx:id="denomination" layoutX="176.0" layoutY="74.0" prefHeight="26.0" prefWidth="187.0" />
+      <TextField fx:id="frequencyrate" layoutX="176.0" layoutY="343.0" prefHeight="26.0" prefWidth="187.0" />
+      <TextField fx:id="adress" layoutX="512.0" layoutY="293.0" prefHeight="26.0" prefWidth="187.0" />
+      <DatePicker fx:id="issuedate" layoutX="176.0" layoutY="182.0" prefHeight="26.0" prefWidth="187.0" />
+      <DatePicker fx:id="printdate" layoutX="512.0" layoutY="343.0" prefHeight="26.0" prefWidth="187.0" />
+      <DatePicker fx:id="maturitydate" layoutX="512.0" layoutY="182.0" prefHeight="26.0" prefWidth="187.0" />
+      <Text layoutX="405.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="securitynumber" />
+      <Text layoutX="431.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="series" />
+      <Text layoutX="60.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="issuedate" />
+      <Text layoutX="48.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="denomination" />
+      <Text layoutX="68.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="owner" />
+      <Text layoutX="59.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="printplace" />
+      <Text layoutX="426.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="address" />
+      <Text layoutX="55.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="couponrate" />
+      <Text layoutX="48.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="frequencyrate" />
+      <Text layoutX="422.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="printdate" />
+      <Text layoutX="413.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="maturitydate" />
+      <Text layoutX="416.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="interestrate" />
+      <TableView fx:id="bondsofferstable" layoutX="76.0" layoutY="384.0" prefHeight="164.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="adresscol" prefWidth="75.0" text="C1" />
+          <TableColumn fx:id="couponratecol" prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

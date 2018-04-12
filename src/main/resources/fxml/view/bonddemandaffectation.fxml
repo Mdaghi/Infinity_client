@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import java.net.URL?>
+
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DemandeAffectationController">
+    <children>
+        <HBox prefHeight="60.0" prefWidth="1207.0" styleClass="box-topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="lbTitulo" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text=" BONDS DEMANDS AFFECTATION                                                                          OFFERS AFFECTATION " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+                </Label>
+                <TextField fx:id="txtPesquisar" prefHeight="50.0" prefWidth="417.0" promptText="Pesquisar" styleClass="pesquisar" />
+                <ToggleButton mnemonicParsing="false" text="">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-add" />
+                    </styleClass>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="menu" />
+                    </toggleGroup>
+                </ToggleButton>
+                <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" text="" toggleGroup="$menu">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-editar" />
+                    </styleClass>
+                </ToggleButton>
+                <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" text="" toggleGroup="$menu">
+                    <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-excluir" />
+                    </styleClass>
+                </ToggleButton>
+            </children>
+        </HBox>
+        <AnchorPane fx:id="telaEdicao" visible="false" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+            <children>
+                <TableView fx:id="tbOrganizacao" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                    <columns>
+                        <TableColumn fx:id="colId" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="Id" />
+                        <TableColumn fx:id="colNome" maxWidth="500.0" minWidth="150.0" prefWidth="200.0" text="Nome" />
+                        <TableColumn fx:id="colSigla" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Sigla" />
+                        <TableColumn fx:id="colEmail" maxWidth="300.0" minWidth="150.0" prefWidth="200.0" text="Email" />
+                        <TableColumn fx:id="colFax" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Fax" />
+                        <TableColumn fx:id="colTelefone" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Telefone" />
+                        <TableColumn fx:id="colLogradouro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Logradouro" />
+                        <TableColumn fx:id="colBairro" maxWidth="400.0" minWidth="200.0" prefWidth="300.0" text="Bairro" />
+                        <TableColumn fx:id="colCidade" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Cidade" />
+                        <TableColumn fx:id="colEstado" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="Estado" />
+                        <TableColumn fx:id="colPais" maxWidth="300.0" minWidth="100.0" prefWidth="150.0" text="País" />
+                        <TableColumn fx:id="colDescricao" maxWidth="500.0" minWidth="150.0" prefWidth="300.0" text="Descrição" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="500.0" prefWidth="600.0" styleClass="box-menus-subtela" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+            <children>
+                <StackPane AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+            </children>
+        </AnchorPane>
+      <AnchorPane layoutX="8.0" layoutY="60.0" prefHeight="482.0" prefWidth="1436.0">
+         <children>
+            <TableView fx:id="tableViewDemand1" layoutX="699.0" layoutY="-1.0" prefHeight="179.0" prefWidth="674.0">
+               <columns>
+                  <TableColumn fx:id="columndate01" prefWidth="113.0" text="Requet Date" />
+                  <TableColumn fx:id="columndate11" prefWidth="119.0" text="Send Date" />
+                  <TableColumn fx:id="columndate21" prefWidth="132.0" text="Mature Date" />
+                  <TableColumn fx:id="columnprice1" prefWidth="113.0" text="Price" />
+                  <TableColumn fx:id="columncoupon1" prefWidth="108.0" text="ineteret coupon" />
+                  <TableColumn fx:id="statusoffer" prefWidth="88.0" text="status" />
+               </columns>
+            </TableView>
+            <DatePicker fx:id="SendDate" layoutX="44.0" layoutY="228.0" prefHeight="40.0" prefWidth="131.0" />
+            <DatePicker fx:id="MatureDate" layoutX="195.0" layoutY="228.0" prefHeight="40.0" prefWidth="131.0" />
+            <TextField fx:id="Price" layoutX="354.0" layoutY="228.0" prefHeight="40.0" prefWidth="131.0" />
+            <TextField fx:id="ineteretcoupon" layoutX="514.0" layoutY="228.0" prefHeight="40.0" prefWidth="131.0" />
+            <Label layoutX="76.0" layoutY="190.0" prefHeight="40.0" prefWidth="66.0" text="Send Date" />
+            <Label layoutX="219.0" layoutY="190.0" prefHeight="40.0" prefWidth="81.0" text="Mature Date" />
+            <Label layoutX="404.0" layoutY="190.0" prefHeight="40.0" prefWidth="30.0" text="Price" />
+            <Label layoutX="527.0" layoutY="190.0" prefHeight="40.0" prefWidth="103.0" text="ineteret coupon" />
+            <Button fx:id="affecter" contentDisplay="TOP" layoutX="597.0" layoutY="284.0" maxHeight="89.0" minWidth="80.0" mnemonicParsing="false" onAction="#affecterAction" prefHeight="89.0" prefWidth="103.0" style="" text="Affecter ">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+            <TableView fx:id="tableViewDemand" layoutX="1.0" prefHeight="179.0" prefWidth="674.0">
+              <columns>
+                  <TableColumn fx:id="columndate0" prefWidth="102.0" text="Requet Date" />
+                <TableColumn fx:id="columndate1" prefWidth="107.0" text="Send Date" />
+                <TableColumn fx:id="columndate2" prefWidth="122.0" text="Mature Date" />
+                  <TableColumn fx:id="columnprice" prefWidth="115.0" text="Price" />
+                  <TableColumn fx:id="columncoupon" prefWidth="117.0" text="ineteret coupon" />
+                  <TableColumn fx:id="statusdemand" prefWidth="110.0" text="status" />
+              </columns>
+            </TableView>
+            <Label fx:id="lblid1" layoutX="24.0" layoutY="219.0" />
+            <TextField fx:id="ineteretcoupon1" layoutX="1211.0" layoutY="229.0" prefHeight="40.0" prefWidth="131.0" />
+            <TextField fx:id="Price1" layoutX="1059.0" layoutY="229.0" prefHeight="40.0" prefWidth="131.0" />
+            <DatePicker fx:id="MatureDate1" layoutX="907.0" layoutY="229.0" prefHeight="40.0" prefWidth="131.0" />
+            <DatePicker fx:id="SendDate1" layoutX="741.0" layoutY="230.0" prefHeight="40.0" prefWidth="131.0" />
+            <Label layoutX="1225.0" layoutY="191.0" prefHeight="40.0" prefWidth="103.0" text="ineteret coupon" />
+            <Label layoutX="1102.0" layoutY="191.0" prefHeight="40.0" prefWidth="30.0" text="Price" />
+            <Label layoutX="917.0" layoutY="191.0" prefHeight="40.0" prefWidth="81.0" text="Mature Date" />
+            <Label layoutX="774.0" layoutY="191.0" prefHeight="40.0" prefWidth="66.0" text="Send Date" />
+            <Label fx:id="lblida1" layoutX="699.0" layoutY="218.0" />
+            <TableView fx:id="tableViewDemand1000" layoutX="338.0" layoutY="323.0" prefHeight="155.0" prefWidth="674.0">
+               <columns>
+                  <TableColumn fx:id="columndate100" prefWidth="135.0" text="Requet Date" />
+                  <TableColumn fx:id="columndate102" prefWidth="132.0" text="Send Date" />
+                  <TableColumn fx:id="columndate101" prefWidth="133.0" text="Mature Date" />
+                  <TableColumn fx:id="columnprice105" prefWidth="109.0" text="Price" />
+                  <TableColumn fx:id="columncoupon103" prefWidth="162.0" text="ineteret coupon" />
+               </columns>
+            </TableView>
+            <Button fx:id="statdemand" contentDisplay="TOP" layoutX="354.0" layoutY="284.0" maxHeight="89.0" minWidth="80.0" mnemonicParsing="false" onAction="#statAction" prefHeight="89.0" prefWidth="103.0" style="" text="demands stats">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+            <Button fx:id="offersstats" contentDisplay="TOP" layoutX="830.0" layoutY="284.0" maxHeight="89.0" minWidth="80.0" mnemonicParsing="false" onAction="#offersstatsAction" prefHeight="89.0" prefWidth="103.0" style="" text="offers stats">
+               <styleClass>
+                  <String fx:value="menus-acoes" />
+                  <String fx:value="acao-salvar" />
+                  <String fx:value="menu-green" />
+               </styleClass>
+            </Button>
+         </children>
+      </AnchorPane>
+    </children>
+    <stylesheets>
+        <URL value="@../css/default.css" />
+        <URL value="@../css/custom.css" />
+    </stylesheets>
+</fx:root>
