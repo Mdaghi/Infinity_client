@@ -49,15 +49,15 @@ public class FXMLController implements Initializable {
 		bondsoffers.setCouponRate(f);
 		bondsoffers.setDenomination(l);
 		bondsoffers.setFrequencyRate("a");
-		bondsoffers.setMaturityDate(date);
+		bondsoffers.setMaturityDate((java.sql.Date) date);
 		bondsoffers.setImgPath("a");
 		bondsoffers.setOwner("a");
 		bondsoffers.setInterestRate("a");
 		bondsoffers.setPrintPlace("a");
 		bondsoffers.setSecurityNumber(l);
-		bondsoffers.setIssueDate(date);
+		bondsoffers.setIssueDate((java.sql.Date) date);
 		bondsoffers.setSeries("a");
-		bondsoffers.setPrintDate(date);
+		bondsoffers.setPrintDate((java.sql.Date) date);
 		proxy.addBondsOffers(bondsoffers);
     }
     @FXML

@@ -48,8 +48,7 @@ public class WatchListController implements Initializable{
 	 @FXML
 	    private GridPane telaCadastro;
 
-	    @FXML
-	    private ToggleGroup grupoCatalogacao;
+	    
 
 	    @FXML
 	    private TextField txtName;
@@ -57,94 +56,30 @@ public class WatchListController implements Initializable{
 	    @FXML
 	    private Button btAddNewWatchList;
 
-	    @FXML
-	    private ToggleGroup grupoVisitantes11;
-
-	    @FXML
-	    private VBox boxVisitas;
-
-	    @FXML
-	    private ToggleButton btnEditProfile;
-
-	    @FXML
-	    private VBox boxLocalizacao;
-
-	    @FXML
-	    private VBox boxUtilitarios;
-
-	    @FXML
-	    private ToggleButton btnDesactivate;
-
-	    @FXML
-	    private ToggleGroup grupoVisitantes1;
-
-	    @FXML
-	    private VBox boxEmprestimo;
+	   
 
 	    @FXML
 	    private Label lbCaracters;
 
 	    @FXML
-	    private Label legenda;
-
-	    @FXML
-	    private ToggleGroup grupoVisitantes111;
-
-	    @FXML
 	    private TextArea txtDescription;
 
-	    @FXML
-	    private ToggleGroup grupoUtilidades1;
-
-	    @FXML
-	    private ToggleGroup grupoUtilidades2;
-
-	    @FXML
-	    private ToggleGroup menu;
-
-	    @FXML
-	    private ToggleGroup grupoVisitantes;
+	   
 
 	    @FXML
 	    private Label lbTitle;
 
-	    @FXML
-	    private ToggleButton BtnChangePassword;
-
-	    @FXML
-	    private Button BtnLogout;
-
-	    @FXML
-	    private VBox boxNotas;
-
-	    @FXML
-	    private ToggleGroup grupoMenus;
+	 
 
 	    @FXML
 	    private Label lbUser;
 
-	    @FXML
-	    private ToggleGroup grupoUtilidades;
-
+	   
 	    @FXML
     private String descriptionContainer="";
     Controls control=new Controls();
 
-    @FXML
-    void telaCadastro(ActionEvent event) {
-    	//Non implementer
-    }
-
-    @FXML
-    void telaEdicao(ActionEvent event) {
-    	//Non implementer
-    }
-
-    @FXML
-    void telaExcluir(ActionEvent event) {
-    	//Non implementer
-
-    }
+   
 
     @FXML
     void addNewWatchList(ActionEvent event) throws NamingException, IOException {

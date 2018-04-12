@@ -50,6 +50,11 @@
                                                         <ToggleButton alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="My Demands" toggleGroup="$grupoCatalogacao" />
                                                         <ToggleButton alignment="CENTER_LEFT" layoutX="40.0" layoutY="40.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Current Bonds" toggleGroup="$grupoCatalogacao" />
                                                         <ToggleButton alignment="CENTER_LEFT" layoutX="40.0" layoutY="70.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Trade Bonds" toggleGroup="$grupoCatalogacao" />
+                                          <ToggleButton fx:id="PutButton" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#MoveToPutOptions" styleClass="submenus" text="Put Options ">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="grupoCatalogacao1" />
+                                             </toggleGroup>
+                                          </ToggleButton>
                                                     </children>
                                                 </VBox>
                                                 <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Traders" toggleGroup="$grupoMenus">
@@ -78,7 +83,7 @@
                                                 </ToggleButton>
                                                 <VBox fx:id="boxEmprestimo" layoutX="10.0" layoutY="180.0" styleClass="box-submenus">
                                        <children>
-                                          <ToggleButton alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="submenus" text="Watchlist">
+                                          <ToggleButton fx:id="tgWatchList" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navigateToWatchList" styleClass="submenus" text="Watchlist">
                                              <toggleGroup>
                                                 <ToggleGroup fx:id="grupoVisitantes1" />
                                              </toggleGroup>
